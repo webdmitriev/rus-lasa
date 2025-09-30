@@ -176,3 +176,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+/**
+ * Webdmitriev options.
+ */
+require get_template_directory() . '/webdmitriev/rus-lasa-gutenberg.php';
