@@ -1,0 +1,43 @@
+// Variables
+$black: #222222;
+$white: #ffffff;
+
+$ff: "Roboto", sans-serif;
+$fz: 16px;
+$lh: 1.2;
+$container: 1160px;
+$indent: 10px;
+
+$md: 768;
+$xs: 480;
+
+body {
+  margin-bottom: 0 !important;
+  font-family: $ff;
+  font-weight: 400;
+  font-size: $fz;
+  line-height: $lh;
+  color: $black;
+  background-color: $white;
+}
+
+#app {
+  position: relative;
+  max-width: 1920px;
+  margin-inline: auto;
+  overflow: hidden;
+}
+
+.container {
+  display: block;
+  width: 100%;
+  max-width: $container;
+  margin-inline: auto;
+  padding-inline: $indent;
+  @media (max-width: #{$xs}px) {
+    max-width: 1100px;
+  }
+  @media (max-width: #{$md}px) {
+    max-width: 600px;
+  }
+}

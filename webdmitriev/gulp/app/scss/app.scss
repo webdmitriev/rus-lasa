@@ -1,0 +1,34 @@
+@import "reset";
+@import "../slick/slick.min.css";
+@import "../slick/slick-theme.min.css";
+
+@import "function";
+
+@import "global";
+
+@import "header";
+@import "footer";
+@import "popup";
+
+@import "components/btn";
+
+// @import "blocks/www";
+
+@import "hover";
+
+@media (max-width: 1680px) {
+}
+@media (max-width: 1366px) {
+}
+@media (max-width: 1199px) {
+}
+@media (max-width: 991px) {
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 576px) {
+}
+@media (max-width: 460px) {
+}
+@media (max-width: 400px) {
+}
