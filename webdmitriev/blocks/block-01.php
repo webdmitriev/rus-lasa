@@ -16,29 +16,47 @@ $allowed_tags = array(
   )
 );
 
-$text = wp_kses(get_field('text'), $allowed_tags);
-$link = esc_url(get_field('link'));
-$bg_1920  = get_field('bg_1920') ? "background-image: url(" . esc_url(get_field('bg_1920')) . ")"  : false;
+$title      = wp_kses(get_field('title'), $allowed_tags);
+$sub_title  = wp_kses(get_field('sub_title'), $allowed_tags);
+$descr      = wp_kses(get_field('descr'), $allowed_tags);
+$logotype   = esc_url(get_field('icon'));
+$is_icons   = get_field('is_icons');
+$bg_1920    = get_field('bg_1920') ? "background: url(" . esc_url(get_field('bg_1920')) . ") center / cover no-repeat;filter: blur(".get_field('blur_1920')."px);"  : '';
+$bg_991     = get_field('bg_991') ? "background: url(" . esc_url(get_field('bg_991')) . ") center / cover no-repeat;filter: blur(".get_field('blur_991')."px);"  : '';
+$bg_576     = get_field('bg_576') ? "background: url(" . esc_url(get_field('bg_576')) . ") center / cover no-repeat;filter: blur(".get_field('blur_576')."px);"  : '';
+
+$numAttr = rand(1, 100000);
 
 ?>
-<?php if(false): ?>www<?php endif; ?>
 
 <!-- <?= $block_path; ?> (start) -->
-<section class="www" style="<?php echo $bg_1920; ?>">
+<section class="<?= $block_path; ?>" data-bg="<?= $numAttr; ?>">
   <?php if( is_admin() ) : ?>
     <style>[data="gutenberg-preview-img"] img {width: 100%;object-fit: contain;}</style>
-    <div class="gutenber-block" style="padding: 10px 20px;background-color: #F5F5F5;border: 1px solid #D1D1D1;"><?= $gutenberg_title; ?></div>
+    <div class="gutenberg-block" style="padding: 10px 20px;background-color: #F5F5F5;border: 1px solid #D1D1D1;"><?= $gutenberg_title; ?></div>
     <div data="gutenberg-preview-img" style="position: relative;z-index:10;"><?php the_field('gutenberg_preview'); ?></div>
   <?php endif; ?>
 
   <?php if( !is_admin() ) : ?>
-    <?php if( $bg_1920 ) : ?>
-      www
-    <?php endif; ?>
-
-    <div class="container pos-r z5">
-      <?= $text; ?>
+    <div class="block-bg"></div>
+    <div class="container">
+      <div class="line-wrap df-sp-ce w-100p <?= $is_icons ? '' : 'block-icons'; ?>">
+        <?php if($logotype): ?><img src="<?= $logotype; ?>" alt="Rus Lasa" class="block-logotype" /><?php endif; ?>
+        <div class="block-content" style="<?= $logotype ? '' : 'max-width: 100%'; ?>">
+          <?php if($title): ?><h1 class="main_title"><?= $title; ?></h1><?php endif; ?>
+          <?php if($sub_title): ?><p class="sub_title"><?= $sub_title; ?></p><?php endif; ?>
+          <?php if($descr): ?><p class="descr"><?= $descr; ?></p><?php endif; ?>
+        </div>
+      </div>
     </div>
   <?php endif; ?>
 </section>
 <!-- <?= $block_path; ?> (end) -->
+
+<?php if( !is_admin() && $bg_1920 ): ?>
+<style>
+.<?= $block_path; ?>[data-bg="<?= $numAttr; ?>"] .block-bg { <?= $bg_1920; ?> }
+@media (max-width: 991px) { .<?= $block_path; ?>[data-bg="<?= $numAttr; ?>"] .block-bg { <?= $bg_991; ?> } }
+@media (max-width: 576px) { .<?= $block_path; ?>[data-bg="<?= $numAttr; ?>"] .block-bg { <?= $bg_576; ?> } }
+</style>
+<?php endif; ?>

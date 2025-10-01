@@ -6,7 +6,7 @@
 add_filter('block_categories_all', function($categories, $post) {
   $categories[] = array(
     'slug'  => 'block_main',
-    'title' => __('Блоки для страниц', 'webdmitriev'),
+    'title' => __('Заглавные блоки', 'webdmitriev'),
     'icon'  => 'wordpress',
   );
 

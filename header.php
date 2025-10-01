@@ -81,7 +81,7 @@
 			</div>
 		</header>
 
-		<div class="header-mobile active">
+		<div class="header-mobile">
 			<div class="header-mobile__content df-sp-fs w-100p scroll-line-none">
 				<a href="<?php echo get_home_url( null, '/' ); ?>" class="header-logotype"><img src="<?= $url; ?>/webdmitriev/assets/img/header/header-logotype-green.svg" alt="Rus Lasa" /></a>
 				<button class="close-menu"><span></span></button>

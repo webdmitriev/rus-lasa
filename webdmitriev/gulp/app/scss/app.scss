@@ -10,10 +10,15 @@
 @import "footer";
 @import "popup";
 
+// components
+@import "components/main-title";
+@import "components/sub-title";
 @import "components/btn";
 
-// @import "blocks/www";
+// blocks
+@import "blocks/block-01";
 
+// hover
 @import "hover";
 
 @media (max-width: 1680px) {
