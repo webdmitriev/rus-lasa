@@ -22,6 +22,7 @@ function webdmitriev_register_menus() {
       'header-menu' => esc_html__('Header Menu', 'webdmitriev'),
       'footer-menu' => esc_html__('Footer Menu', 'webdmitriev'),
       'mobile-menu' => esc_html__('Mobile Menu', 'webdmitriev'),
+      'lang-menu' => esc_html__('Lang Menu', 'webdmitriev'),
     )
   );
 }
