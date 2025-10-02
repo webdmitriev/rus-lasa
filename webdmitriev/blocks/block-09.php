@@ -20,14 +20,17 @@ $allowed_tags = array(
   )
 );
 
-$text = wp_kses(get_field('text'), $allowed_tags);
-$link = esc_url(get_field('link'));
+$bgc          = get_field('bgc') ? get_field('bgc') : '--bg-gray-color';
+$image        = esc_url(get_field('image'));
+$sum_people   = wp_kses(get_field('sum_people'), $allowed_tags);
+$btn_text     = wp_kses(get_field('btn_text'), $allowed_tags);
+$btn_sub_text = wp_kses(get_field('btn_sub_text'), $allowed_tags);
+
 
 ?>
-<?php if(false): ?>www<?php endif; ?>
 
 <!-- <?= $block_path; ?> (start) -->
-<section class="<?= $block_path; ?>">
+<section class="<?= $block_path; ?>" style="background-color: var(<?= $bgc; ?>)">
   <?php if( is_admin() ) : ?>
     <style>[data="gutenberg-preview-img"] img {width: 100%;object-fit: contain;}</style>
     <div class="gutenberg-block" style="padding: 10px 20px;background-color: #F5F5F5;border: 1px solid #D1D1D1;"><?= $gutenberg_title; ?></div>
@@ -38,12 +41,12 @@ $link = esc_url(get_field('link'));
     <div class="container">
       <div class="line-wrap df-ce-ce w-100p">
         <div class="block__image">
-          <img src="<?= $url; ?>/webdmitriev/assets/img/block-09/image-01.png" alt="Rus Lasa" />
-          <span class="descr" data-before="Нас уже:" data-after="человек(а)">30</span>
+          <?php if($image): ?><img src="<?= $image; ?>" alt="Rus Lasa" /><?php endif; ?>
+          <?php if($sum_people): ?><span class="descr" data-before="Нас уже:" data-after="человек(а)"><?= $sum_people; ?></span><?php endif; ?>
         </div>
         <div class="block__content">
-          <button class="btn">Присоединиться</button>
-          <p class="descr">Будьте в&nbsp;курсе актуальных новостей!</p>
+          <?php if($btn_text): ?><button class="btn"><?= $btn_text; ?></button><?php endif; ?>
+          <?php if($btn_sub_text): ?><p class="descr"><?= $btn_sub_text; ?></p><?php endif; ?>
         </div>
       </div>
     </div>
