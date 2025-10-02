@@ -45,7 +45,7 @@ $numAttr = rand(1, 100000);
     <div class="block-bg"></div>
     <div class="container">
       <div class="line-wrap">
-        <?php if($title): ?><h2 class="sect-title"><?= $title; ?></h2><?php endif; ?>
+        <?php if($title): ?><h2 class="sect_title"><?= $title; ?></h2><?php endif; ?>
         <div class="block-content">
           <?php if($descr): ?><?= $descr; ?><?php endif; ?>
           <?php if($btn_text): ?><button class="btn"><?= $btn_text; ?></button><?php endif; ?>
