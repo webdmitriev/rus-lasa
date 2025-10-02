@@ -3,8 +3,8 @@
  * Conference - Block
  */
 
-$block_path = 'block-00';
-$gutenberg_title = 'Block - 00';
+$block_path = 'block-11';
+$gutenberg_title = 'Block - 11';
 
 $url = get_template_directory_uri();
 $image_base64 = 'data:image/gif;base64,R0lGODlhBwAFAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAUAAAIFjI+puwUAOw==';
@@ -20,11 +20,9 @@ $allowed_tags = array(
   )
 );
 
-$text = wp_kses(get_field('text'), $allowed_tags);
-$link = esc_url(get_field('link'));
+$posts = get_field('posts'); // title, image, descr, btn_text, btn_link
 
 ?>
-<?php if(false): ?>www<?php endif; ?>
 
 <!-- <?= $block_path; ?> (start) -->
 <section class="<?= $block_path; ?>">
@@ -36,7 +34,16 @@ $link = esc_url(get_field('link'));
 
   <?php if( !is_admin() ) : ?>
     <div class="container">
-      <?= $text; ?>
+      <?php if( have_rows('posts') ): while ( have_rows('posts') ): the_row(); ?>
+        <div class="block__post df-sp-fs w-100p">
+          <img src="<?= get_sub_field('image') ? get_sub_field('image') : $image_base64; ?>" alt="Rus Lasa" />
+          <div class="block__post-content">
+            <?php if(get_sub_field('title')): ?><span class="block__post-content__title"><?= get_sub_field('title'); ?></span><?php endif; ?>
+            <?php if(get_sub_field('descr')): ?><span class="block__post-content__descr"><?= get_sub_field('descr'); ?></span><?php endif; ?>
+            <?php if(get_sub_field('btn_text')): ?><a href="<?= get_sub_field('btn_link'); ?>" class="btn"><?= get_sub_field('btn_text'); ?></a><?php endif; ?>
+          </div>
+        </div>
+      <?php endwhile; endif; ?>
     </div>
   <?php endif; ?>
 </section>
