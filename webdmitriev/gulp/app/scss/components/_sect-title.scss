@@ -1,0 +1,31 @@
+.sect-title {
+  display: block;
+  width: 100%;
+  font-family: $ff;
+  font-weight: 500;
+  font-size: 48px;
+  color: var(--accent-color);
+}
+
+@media (max-width: 1680px) {
+}
+@media (max-width: 1366px) {
+}
+@media (max-width: 1199px) {
+}
+@media (max-width: 991px) {
+}
+@media (max-width: 768px) {
+  .sect-title {
+    font-size: 40px;
+  }
+}
+@media (max-width: 576px) {
+  .sect-title {
+    font-size: 36px;
+  }
+}
+@media (max-width: 460px) {
+}
+@media (max-width: 400px) {
+}

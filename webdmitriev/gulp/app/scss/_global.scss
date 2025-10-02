@@ -164,6 +164,35 @@
   overflow: hidden;
 }
 
+section ul {
+  display: block;
+  width: 100%;
+  li {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-left: 38px;
+    font-family: $ff;
+    font-weight: 400;
+    font-size: 20px;
+    color: $black;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 10px;
+      display: block;
+      width: 7px;
+      height: 7px;
+      background-color: $black;
+      border-radius: 20px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 28px;
+    }
+  }
+}
+
 .scroll-line-none::-webkit-scrollbar {
   width: 0px;
   height: 0px;
@@ -212,6 +241,13 @@ select {
 @media (max-width: 768px) {
 }
 @media (max-width: 576px) {
+  section ul li {
+    padding-left: 20px;
+    font-size: 18px;
+  }
+  section ul li:before {
+    left: 0;
+  }
 }
 @media (max-width: 460px) {
 }
