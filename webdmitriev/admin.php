@@ -1,6 +1,5 @@
 <?php
 
-
 /*
  * Remove admin bar (front page)
  */

@@ -4,11 +4,14 @@
 .btn {
   display: block;
   width: 100%;
-  padding: 16px;
-  font-weight: 500;
+  max-width: max-content;
+  padding: 16px 30px;
+  font-weight: 600;
   font-size: 16px;
   text-align: center;
-  color: $white;
-  background-color: $black;
-  border-radius: 40px;
+  color: var(--accent-color);
+  background-color: var(--lime-color);
+  border: 2px solid var(--lime-color);
+  border-radius: 5px;
+  transition: all 0.4s ease;
 }

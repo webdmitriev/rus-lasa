@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * ACF textarea
+ */
+require get_template_directory() . '/webdmitriev/acf-textarea.php';
+
+/**
  * Admin
  */
 require get_template_directory() . '/webdmitriev/admin.php';
