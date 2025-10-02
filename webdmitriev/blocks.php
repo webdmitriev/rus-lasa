@@ -56,7 +56,7 @@ add_action('acf/init', function() {
     'title'           => __('Block - 02'),
     'description'     => __('Текст'),
     'render_template' => 'webdmitriev/blocks/block-02.php',
-    'category'        => 'block_main',
+    'category'        => 'block_content',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -76,7 +76,7 @@ add_action('acf/init', function() {
     'title'           => __('Block - 03'),
     'description'     => __('Текст'),
     'render_template' => 'webdmitriev/blocks/block-03.php',
-    'category'        => 'block_main',
+    'category'        => 'block_content',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -130,6 +130,26 @@ add_action('acf/init', function() {
     )
   ));
 
+  // 06
+  acf_register_block_type(array(
+    'name'            => 'rus-lasa-block-06',
+    'title'           => __('Block - 06'),
+    'description'     => __('Фон картинка с логотипами и текстом'),
+    'render_template' => 'webdmitriev/blocks/block-06.php',
+    'category'        => 'block_content',
+    'icon'            => $icon,
+    'keywords'        => array('block'),
+    'mode'            => 'preview',
+    'example' => array(
+      'attributes' => array(
+        'mode' => 'preview',
+        'data' => array(
+          'gutenberg_preview' => '<img src="' . $image . 'block-06.jpg">'
+        )
+      )
+    )
+  ));
+
 });
 
 add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context) {
@@ -139,5 +159,6 @@ add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context)
     'acf/rus-lasa-block-03',
     'acf/rus-lasa-block-04',
     'acf/rus-lasa-block-05',
+    'acf/rus-lasa-block-06',
   );
 }, 10, 2);
