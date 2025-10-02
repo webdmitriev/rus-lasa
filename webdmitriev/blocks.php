@@ -16,6 +16,12 @@ add_filter('block_categories_all', function($categories, $post) {
     'icon'  => 'wordpress',
   );
 
+  $categories[] = array(
+    'slug'  => 'block_content',
+    'title' => __('Контент', 'webdmitriev'),
+    'icon'  => 'wordpress',
+  );
+
   return $categories;
 }, 10, 2);
 
@@ -104,6 +110,26 @@ add_action('acf/init', function() {
     )
   ));
 
+  // 05
+  acf_register_block_type(array(
+    'name'            => 'rus-lasa-block-05',
+    'title'           => __('Block - 05'),
+    'description'     => __('Картинка с авторами'),
+    'render_template' => 'webdmitriev/blocks/block-05.php',
+    'category'        => 'block_content',
+    'icon'            => $icon,
+    'keywords'        => array('block'),
+    'mode'            => 'preview',
+    'example' => array(
+      'attributes' => array(
+        'mode' => 'preview',
+        'data' => array(
+          'gutenberg_preview' => '<img src="' . $image . 'block-05.jpg">'
+        )
+      )
+    )
+  ));
+
 });
 
 add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context) {
@@ -112,5 +138,6 @@ add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context)
     'acf/rus-lasa-block-02',
     'acf/rus-lasa-block-03',
     'acf/rus-lasa-block-04',
+    'acf/rus-lasa-block-05',
   );
 }, 10, 2);
