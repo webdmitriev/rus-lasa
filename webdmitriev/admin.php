@@ -47,12 +47,14 @@ if( function_exists('acf_add_options_page') ) {
  * Add css, js, fonts - for page-custom.php
  */
 function webdmitriev_scripts() {
+  wp_enqueue_style('jquery-ui-css', 'https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css', array(), '1.0.0');
   wp_enqueue_style('webdmitriev-css', get_template_directory_uri() . '/webdmitriev/assets/css/app.min.css', array(), '1.0.0');
 
   wp_deregister_script('jquery');
   wp_register_script('jquery', get_template_directory_uri() . '/webdmitriev/assets/js/jquery-3.6.1.min.js', false, null, false);
   wp_enqueue_script('jquery');
 
+  wp_enqueue_script('jquery-ui-js', 'https://code.jquery.com/ui/1.13.2/jquery-ui.min.js', array('jquery'), '1.0.0', true);
   wp_enqueue_script('webdmitriev-app', get_template_directory_uri() . '/webdmitriev/assets/js/app.min.js', array('jquery'), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'webdmitriev_scripts');

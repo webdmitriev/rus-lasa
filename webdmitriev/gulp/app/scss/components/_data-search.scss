@@ -1,0 +1,36 @@
+.data-search {
+  display: block;
+  width: 100%;
+  input {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    font-family: $ff;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+    color: var(--accent-color);
+    background-color: $white;
+    border-radius: 5px;
+    &::placeholder {
+      color: var(--accent-color);
+    }
+  }
+}
+
+@media (max-width: 1680px) {
+}
+@media (max-width: 1366px) {
+}
+@media (max-width: 1199px) {
+}
+@media (max-width: 991px) {
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 576px) {
+}
+@media (max-width: 460px) {
+}
+@media (max-width: 400px) {
+}

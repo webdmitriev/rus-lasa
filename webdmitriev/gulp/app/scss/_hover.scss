@@ -28,4 +28,7 @@
   .btn:hover {
     background-color: transparent;
   }
+  .data-selected .selected-category .category-item:hover {
+    background-color: var(--lime-color);
+  }
 }

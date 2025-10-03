@@ -27,3 +27,9 @@ require get_template_directory() . '/webdmitriev/pages/ui.php';
  * Gutenberg blocks
  */
 require get_template_directory() . '/webdmitriev/blocks.php';
+
+
+/**
+ * News filter
+ */
+require get_template_directory() . '/webdmitriev/news-filter.php';
