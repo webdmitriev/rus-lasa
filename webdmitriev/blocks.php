@@ -250,6 +250,26 @@ add_action('acf/init', function() {
     )
   ));
 
+  // 12
+  acf_register_block_type(array(
+    'name'            => 'rus-lasa-block-12',
+    'title'           => __('Block - 12'),
+    'description'     => __('Политика обработки'),
+    'render_template' => 'webdmitriev/blocks/block-12.php',
+    'category'        => 'block_content',
+    'icon'            => $icon,
+    'keywords'        => array('block'),
+    'mode'            => 'preview',
+    'example' => array(
+      'attributes' => array(
+        'mode' => 'preview',
+        'data' => array(
+          'gutenberg_preview' => '<img src="' . $image . 'block-12.jpg">'
+        )
+      )
+    )
+  ));
+
 });
 
 add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context) {
@@ -265,5 +285,6 @@ add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context)
     'acf/rus-lasa-block-09',
     'acf/rus-lasa-block-10',
     'acf/rus-lasa-block-11',
+    'acf/rus-lasa-block-12',
   );
 }, 10, 2);
