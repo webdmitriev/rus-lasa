@@ -22,6 +22,12 @@ add_filter('block_categories_all', function($categories, $post) {
     'icon'  => 'wordpress',
   );
 
+  $categories[] = array(
+    'slug'  => 'block_news',
+    'title' => __('Новостные блоки', 'webdmitriev'),
+    'icon'  => 'wordpress',
+  );
+
   return $categories;
 }, 10, 2);
 
@@ -290,6 +296,26 @@ add_action('acf/init', function() {
     )
   ));
 
+  // 14
+  acf_register_block_type(array(
+    'name'            => 'rus-lasa-block-14',
+    'title'           => __('Block - 14'),
+    'description'     => __('Новости'),
+    'render_template' => 'webdmitriev/blocks/block-14.php',
+    'category'        => 'block_news',
+    'icon'            => $icon,
+    'keywords'        => array('block'),
+    'mode'            => 'preview',
+    'example' => array(
+      'attributes' => array(
+        'mode' => 'preview',
+        'data' => array(
+          'gutenberg_preview' => '<img src="' . $image . 'block-14.jpg">'
+        )
+      )
+    )
+  ));
+
 });
 
 add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context) {
@@ -307,5 +333,6 @@ add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context)
     'acf/rus-lasa-block-11',
     'acf/rus-lasa-block-12',
     'acf/rus-lasa-block-13',
+    'acf/rus-lasa-block-14',
   );
 }, 10, 2);
