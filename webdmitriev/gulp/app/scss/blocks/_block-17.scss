@@ -1,0 +1,34 @@
+.block-17 {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-block: 50px;
+  background-color: var(--bg-gray-color);
+  z-index: 10;
+  .sect_title {
+    margin-bottom: 60px;
+  }
+  .data-posts {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1680px) {
+}
+@media (max-width: 1366px) {
+}
+@media (max-width: 1199px) {
+}
+@media (max-width: 991px) {
+  .block-17 {
+    padding-block: 40px;
+  }
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 576px) {
+}
+@media (max-width: 460px) {
+}
+@media (max-width: 400px) {
+}
