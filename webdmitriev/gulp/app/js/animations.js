@@ -2,12 +2,12 @@ jQuery(document).ready(function ($) {
 
   const isAnimation = document.querySelector('.add-animation');
 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => entry.isIntersecting ? entry.target.classList.add('isAnime') : entry.target.classList.remove('isAnime'))
+  }, { rootMargin: "-50px 0px -100px 0px" })
+
   // block-02
   if (isAnimation && document.querySelector('.block-02')) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => entry.isIntersecting ? entry.target.classList.add('isAnime') : entry.target.classList.remove('isAnime'))
-    }, {})
-
     if (document.querySelector('.block-02 .descr')) {
       const descr = document.querySelectorAll('.block-02 .descr')
       descr.forEach(el => observer.observe(el))
@@ -21,10 +21,6 @@ jQuery(document).ready(function ($) {
 
   // block-03
   if (isAnimation && document.querySelector('.block-03')) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => entry.isIntersecting ? entry.target.classList.add('isAnime') : entry.target.classList.remove('isAnime'))
-    }, {})
-
     if (document.querySelector('.block-03 .block-content ul li')) {
       const elements = document.querySelectorAll('.block-03 .block-content ul li')
       elements.forEach(el => observer.observe(el))
@@ -43,10 +39,6 @@ jQuery(document).ready(function ($) {
 
   // block-04
   if (isAnimation && document.querySelector('.block-04')) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => entry.isIntersecting ? entry.target.classList.add('isAnime') : entry.target.classList.remove('isAnime'))
-    }, {})
-
     if (document.querySelector('.block-04 .sect_title')) {
       const title = document.querySelectorAll('.block-04 .sect_title')
       title.forEach(el => observer.observe(el))
@@ -60,10 +52,6 @@ jQuery(document).ready(function ($) {
 
   // block-05
   if (isAnimation && document.querySelector('.block-05')) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => entry.isIntersecting ? entry.target.classList.add('isAnime') : entry.target.classList.remove('isAnime'))
-    }, {})
-
     if (document.querySelector('.block-05 .img')) {
       const img = document.querySelectorAll('.block-05 .img')
       img.forEach(el => observer.observe(el))
@@ -77,10 +65,6 @@ jQuery(document).ready(function ($) {
 
   // block-06
   if (isAnimation && document.querySelector('.block-06')) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => entry.isIntersecting ? entry.target.classList.add('isAnime') : entry.target.classList.remove('isAnime'))
-    }, {})
-
     if (document.querySelector('.block-06 .descr')) {
       const descr = document.querySelectorAll('.block-06 .descr')
       descr.forEach(el => observer.observe(el))
@@ -94,10 +78,6 @@ jQuery(document).ready(function ($) {
 
   // block-09
   if (isAnimation && document.querySelector('.block-09')) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => entry.isIntersecting ? entry.target.classList.add('isAnime') : entry.target.classList.remove('isAnime'))
-    }, {})
-
     if (document.querySelector('.block-09 .block__image img')) {
       const img = document.querySelectorAll('.block-09 .block__image img')
       img.forEach(el => observer.observe(el))
@@ -116,10 +96,6 @@ jQuery(document).ready(function ($) {
 
   // block-11
   if (isAnimation && document.querySelector('.block-11')) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => entry.isIntersecting ? entry.target.classList.add('isAnime') : entry.target.classList.remove('isAnime'))
-    }, {})
-
     if (document.querySelector('.block-11 .block__post')) {
       const img = document.querySelectorAll('.block-11 .block__post')
       img.forEach(el => observer.observe(el))
@@ -128,10 +104,6 @@ jQuery(document).ready(function ($) {
 
   // block-12
   if (isAnimation && document.querySelector('.block-12')) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => entry.isIntersecting ? entry.target.classList.add('isAnime') : entry.target.classList.remove('isAnime'))
-    }, {})
-
     if (document.querySelector('.block-12 .block-title')) {
       const title = document.querySelectorAll('.block-12 .block-title')
       title.forEach(el => observer.observe(el))
