@@ -5,10 +5,17 @@
  */
 require get_template_directory() . '/webdmitriev/acf-textarea.php';
 
+
 /**
  * Admin
  */
 require get_template_directory() . '/webdmitriev/admin.php';
+
+
+/**
+ * Post types
+ */
+require get_template_directory() . '/webdmitriev/post-types.php';
 
 
 /**
@@ -33,3 +40,9 @@ require get_template_directory() . '/webdmitriev/blocks.php';
  * News filter
  */
 require get_template_directory() . '/webdmitriev/news-filter.php';
+
+
+/**
+ * Vacancy filter
+ */
+require get_template_directory() . '/webdmitriev/vacancy-filter.php';
