@@ -25,4 +25,12 @@ jQuery(document).ready(function ($) {
     })
   }
 
+  // block-20
+  if (document.querySelector('.block-20')) {
+    $(".block-20 #vacancy-filter").on("click", ".block-vacancy__header", function () {
+      $(this).toggleClass("active")
+      $(this).parents(".block-vacancy").find(".block-vacancy__content").slideToggle()
+    })
+  }
+
 });

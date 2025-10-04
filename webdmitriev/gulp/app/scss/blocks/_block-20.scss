@@ -2,10 +2,131 @@
   position: relative;
   display: block;
   width: 100%;
-  padding-block: 100px;
-  background-color: var(--bg-gray-color);
+  padding-block: 60px;
+  background-color: $white;
   z-index: 10;
   .sect_title {
+    margin-bottom: 30px;
+  }
+  .block-vacancies {
+    display: block;
+    width: 100%;
+    .block-vacancy {
+      display: block;
+      width: 100%;
+      padding: 24px 30px;
+      background-color: #e9e9e9;
+      .block-vacancy__header {
+        position: relative;
+        padding-right: 110px;
+        cursor: pointer;
+        &:after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          width: 63px;
+          height: 22px;
+          background: url("../img/icons/icon-bottom-post.svg") center / contain no-repeat;
+          transition: all 0.4s ease;
+          transform: translateY(-50%);
+        }
+        .vacancy__header-title {
+          display: block;
+          width: 100%;
+          max-width: max-content;
+          margin-right: 20px;
+          font-family: $ff;
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 1.4;
+          color: $black;
+        }
+        .vacancy__header-price {
+          display: block;
+          width: 100%;
+          max-width: max-content;
+          font-family: $ff;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 1.4;
+          color: $black;
+        }
+        .block-vacancy__header-details {
+          margin-block: 8px 0;
+          .details-map,
+          .details-timer {
+            position: relative;
+            display: block;
+            width: 100%;
+            max-width: max-content;
+            margin-right: 40px;
+            padding-left: 20px;
+            font-family: $ff;
+            font-weight: 400;
+            font-size: 16px;
+            color: $black;
+            &.icon-map-red:before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 0;
+              display: block;
+              width: 13px;
+              height: 17px;
+              background: url("../img/icons/icon-map-red.svg") center / contain no-repeat;
+              transform: translateY(-50%);
+            }
+            &.icon-timer-blue:before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 0;
+              display: block;
+              width: 19px;
+              height: 19px;
+              background: url("../img/icons/icon-timer-blue.svg") center / contain no-repeat;
+              transform: translateY(-50%);
+            }
+          }
+          .details-timer {
+            padding-left: 24px;
+          }
+        }
+        &.active:after {
+          transform: translateY(-50%) rotate(180deg);
+        }
+      }
+      .block-vacancy__content {
+        width: 100%;
+        padding-top: 30px;
+        padding-inline: 12px;
+        font-family: $ff;
+        font-weight: 300;
+        font-size: 17px;
+        line-height: 1.5;
+        color: $black;
+        span {
+          display: block;
+          margin-bottom: 2px;
+          font-weight: 500;
+        }
+        span + br {
+          display: none;
+        }
+
+        *:last-child {
+          margin-top: 30px;
+        }
+      }
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+  #vacancy-filter #vacancy-search-form {
+    display: block;
+    width: 100%;
     margin-bottom: 30px;
   }
 }
@@ -17,12 +138,77 @@
 @media (max-width: 1199px) {
 }
 @media (max-width: 991px) {
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header:after {
+    right: 0;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header .block-vacancy__header-details {
+    gap: 12px;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header .vacancy__header-title {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header .vacancy__header-price {
+    max-width: 100%;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header .block-vacancy__header-details .details-map,
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header .block-vacancy__header-details .details-timer {
+    max-width: 100%;
+    margin-right: 0;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__content {
+    padding-inline: 0;
+  }
 }
 @media (max-width: 768px) {
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header:after {
+    top: 20px;
+    transform: translateY(0);
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header.active:after {
+    transform: translateY(0) rotate(180deg);
+  }
 }
 @media (max-width: 576px) {
+  .block-20 .block-vacancies .block-vacancy {
+    padding: 14px 18px;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header {
+    padding-right: 80px;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header .vacancy__header-title {
+    font-size: 21px;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header .vacancy__header-price {
+    font-size: 18px;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__content {
+    font-size: 16px;
+  }
 }
 @media (max-width: 460px) {
 }
 @media (max-width: 400px) {
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header {
+    padding-right: 0;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header .vacancy__header-title {
+    padding-right: 60px;
+    font-size: 18px;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header .vacancy__header-price {
+    padding-right: 60px;
+    font-size: 16px;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header:after {
+    top: 12px;
+    width: 52px;
+    height: 18px;
+  }
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header .block-vacancy__header-details .details-map,
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__header .block-vacancy__header-details .details-timer,
+  .block-20 .block-vacancies .block-vacancy .block-vacancy__content {
+    font-size: 15px;
+  }
 }
