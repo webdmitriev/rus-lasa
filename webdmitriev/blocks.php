@@ -396,6 +396,26 @@ add_action('acf/init', function() {
     )
   ));
 
+  // 19
+  acf_register_block_type(array(
+    'name'            => 'rus-lasa-block-19',
+    'title'           => __('Block - 19'),
+    'description'     => __('Картинка, текст, кнопки'),
+    'render_template' => 'webdmitriev/blocks/block-19.php',
+    'category'        => 'block_news',
+    'icon'            => $icon,
+    'keywords'        => array('block'),
+    'mode'            => 'preview',
+    'example' => array(
+      'attributes' => array(
+        'mode' => 'preview',
+        'data' => array(
+          'gutenberg_preview' => '<img src="' . $image . 'block-19.jpg">'
+        )
+      )
+    )
+  ));
+
 });
 
 add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context) {
@@ -418,5 +438,6 @@ add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context)
     'acf/rus-lasa-block-16',
     'acf/rus-lasa-block-17',
     'acf/rus-lasa-block-18',
+    'acf/rus-lasa-block-19',
   );
 }, 10, 2);
