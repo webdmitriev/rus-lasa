@@ -30,6 +30,7 @@ function scripts() {
   return src([
     'node_modules/inputmask/dist/jquery.inputmask.js',
     'app/slick/slick.js',
+    'app/js/animations.js',
     'app/js/app.js',
     'app/js/slider.js',
   ])

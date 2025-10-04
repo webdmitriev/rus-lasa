@@ -25,7 +25,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class("add-animation"); ?>>
 <?php wp_body_open(); ?>
 
 	<div id="app">

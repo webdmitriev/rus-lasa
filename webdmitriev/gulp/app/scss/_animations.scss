@@ -1,0 +1,157 @@
+@mixin isAnimeHide {
+  opacity: 0;
+  transition: all 1s ease;
+}
+@mixin isAnimeShow {
+  opacity: 1;
+  transition: all 1s ease;
+}
+
+.add-animation {
+  .block-02 {
+    .descr {
+      transform: translateY(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateY(0px);
+        @include isAnimeShow;
+      }
+    }
+    .btn {
+      transform: translateY(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateY(0px);
+        @include isAnimeShow;
+      }
+    }
+  }
+
+  .block-03 {
+    .sect_title {
+      @include isAnimeHide;
+      &.isAnime {
+        @include isAnimeShow;
+      }
+    }
+    .block-content ul li {
+      transform: translateX(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateX(0px);
+        @include isAnimeShow;
+      }
+    }
+    .btn {
+      transform: translateX(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateX(0px);
+        @include isAnimeShow;
+      }
+    }
+  }
+
+  .block-04 {
+    .sect_title {
+      transform: translateY(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateY(0px);
+        @include isAnimeShow;
+      }
+    }
+    .sub_title {
+      transform: translateY(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateY(0px);
+        @include isAnimeShow;
+      }
+    }
+  }
+
+  .block-05 {
+    .img {
+      @include isAnimeHide;
+      &.isAnime {
+        @include isAnimeShow;
+      }
+    }
+    .items__li {
+      transform: translateY(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateY(0px);
+        @include isAnimeShow;
+      }
+    }
+  }
+
+  .block-06 {
+    .descr {
+      @include isAnimeHide;
+      &.isAnime {
+        @include isAnimeShow;
+      }
+    }
+    .block__logotypes img {
+      transform: translateY(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateY(0px);
+        @include isAnimeShow;
+      }
+    }
+  }
+
+  .block-09 {
+    .block__image img {
+      transform: translateY(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateY(0px);
+        @include isAnimeShow;
+      }
+    }
+    .block__image .descr {
+      transform: translateY(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateY(0px);
+        @include isAnimeShow;
+      }
+    }
+    .block__content {
+      transform: translateY(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateY(0px);
+        @include isAnimeShow;
+      }
+    }
+  }
+
+  .block-11 {
+    .block__post {
+      transform: translateY(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateY(0px);
+        @include isAnimeShow;
+      }
+    }
+  }
+
+  .block-12 {
+    .block-title,
+    .btn {
+      transform: translateY(40px);
+      @include isAnimeHide;
+      &.isAnime {
+        transform: translateY(0px);
+        @include isAnimeShow;
+      }
+    }
+  }
+}
