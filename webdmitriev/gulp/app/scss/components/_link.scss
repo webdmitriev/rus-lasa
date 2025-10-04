@@ -1,0 +1,39 @@
+.link {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: max-content;
+  padding-right: 40px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 15px;
+  color: #bf491b;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: block;
+    width: 15px;
+    height: 40px;
+    background: url("../img/icons/icon-right-orange.svg") center / contain no-repeat;
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 1680px) {
+}
+@media (max-width: 1366px) {
+}
+@media (max-width: 1199px) {
+}
+@media (max-width: 991px) {
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 576px) {
+}
+@media (max-width: 460px) {
+}
+@media (max-width: 400px) {
+}

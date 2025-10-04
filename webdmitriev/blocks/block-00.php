@@ -17,7 +17,9 @@ $allowed_tags = array(
   'br'    => array(),
   'span'  => array(
     'class' => array(),
-  )
+  ),
+  'ul'  => array(),
+  'li'  => array(),
 );
 
 $text = wp_kses(get_field('text'), $allowed_tags);
