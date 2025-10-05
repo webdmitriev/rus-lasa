@@ -125,9 +125,41 @@
     }
   }
   #vacancy-filter #vacancy-search-form {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 18px;
     width: 100%;
     margin-bottom: 30px;
+    input {
+      display: block;
+      width: 100%;
+      padding: 12px 18px;
+      font-family: $ff;
+      font-weight: 400;
+      font-size: 16px;
+      color: $black;
+      background-color: var(--bg-gray-color);
+      border-radius: 3px;
+      &::placeholder {
+        color: $black;
+      }
+    }
+    select {
+      -webkit-appearance: none;
+      appearance: none;
+      display: block;
+      width: 100%;
+      max-width: 260px;
+      padding: 12px 18px;
+      font-family: $ff;
+      font-weight: 400;
+      font-size: 16px;
+      color: $black;
+      background-color: var(--bg-gray-color);
+      border-radius: 3px;
+    }
   }
 }
 
@@ -162,6 +194,13 @@
   }
 }
 @media (max-width: 768px) {
+  .block-20 #vacancy-filter #vacancy-search-form {
+    justify-content: space-between;
+  }
+  .block-20 #vacancy-filter #vacancy-search-form select {
+    max-width: calc(50% - 10px);
+  }
+
   .block-20 .block-vacancies .block-vacancy .block-vacancy__header:after {
     top: 20px;
     transform: translateY(0);
@@ -188,6 +227,12 @@
   }
 }
 @media (max-width: 460px) {
+  .block-20 #vacancy-filter #vacancy-search-form {
+    gap: 12px;
+  }
+  .block-20 #vacancy-filter #vacancy-search-form select {
+    max-width: 100%;
+  }
 }
 @media (max-width: 400px) {
   .block-20 .block-vacancies .block-vacancy .block-vacancy__header {
