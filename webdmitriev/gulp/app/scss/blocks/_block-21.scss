@@ -176,7 +176,11 @@
       color: $black;
     }
     .content__bottom {
-      .btn {
+      .btn[disabled] {
+        color: rgba(0, 0, 0, 0.3);
+        background-color: var(--bg-gray-color);
+        border-color: var(--bg-gray-color);
+        cursor: no-drop;
       }
     }
   }
