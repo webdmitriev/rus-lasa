@@ -88,4 +88,19 @@ $link = esc_url(get_field('link'));
     <div class="content__bottom"><button class="btn" product-id="0">Добавить в корзину</button></div>
   </div>
 </div>
+
+<div class="basket__popup">
+  <div class="basket__popup-bg"></div>
+  <button class="close-popup"></button>
+  <div class="basket__popup-content scroll-line-none">
+    <p class="basket-text-count">В вашей корзине 3 товара</p>
+
+    <div class="basket__items">
+      <div class="basket__item">
+        www
+      </div>
+    </div>
+
+  </div>
+</div>
 <?php endif; ?>

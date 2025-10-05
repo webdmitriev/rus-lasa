@@ -72,7 +72,6 @@ jQuery(document).ready(function ($) {
       cleanPopupProduct()
     })
 
-
     $(".product__popup").on("click", ".btn", function () {
       $(this).attr("disabled", true);
 
@@ -107,6 +106,12 @@ jQuery(document).ready(function ($) {
       // 4. Сохраняем обновлённый массив обратно
       localStorage.setItem("basket-webdmitriev", JSON.stringify(basket));
     });
+
+    // 
+    $(".basket__popup").on("click", ".close-popup", function () {
+      $(".basket__popup").hide()
+    })
+
   }
 
 });
