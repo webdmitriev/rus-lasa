@@ -33,4 +33,33 @@ jQuery(document).ready(function ($) {
     })
   }
 
+  // block-21
+  if (document.querySelector('.block-21')) {
+    $(".block-21 .block__products .block__product").on("click", ".btn", function () {
+      const id = $(this).parents(".block__product").attr("data-id")
+      const title = $(this).parents(".block__product").find(".block__product-title").text()
+      const image = $(this).parents(".block__product").find(".block__product-img").attr("src")
+      const price = $(this).parents(".block__product").attr("data-price")
+      const descr = $(this).parents(".block__product").find(".block__product-descr").text()
+
+      $(".product__popup .product__img").attr("src", image)
+      $(".product__popup .product__title").text(title)
+      $(".product__popup .product__price").text(price)
+      $(".product__popup .content__descr").text(descr)
+      $(".product__popup .btn").attr("product-id", id)
+
+      $(".product__popup").show();
+    })
+
+    $(".product__popup").on("click", ".close-popup", function () {
+      $(".product__popup").hide();
+
+      $(".product__popup .product__img").attr("src", 'data:image/gif;base64,R0lGODlhBwAFAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAUAAAIFjI+puwUAOw==')
+      $(".product__popup .product__title").text('')
+      $(".product__popup .product__price").text('')
+      $(".product__popup .content__descr").text('')
+      $(".product__popup .btn").attr("product-id", '0')
+    })
+  }
+
 });

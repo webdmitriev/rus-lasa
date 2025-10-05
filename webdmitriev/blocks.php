@@ -436,6 +436,26 @@ add_action('acf/init', function() {
     )
   ));
 
+  // 21
+  acf_register_block_type(array(
+    'name'            => 'rus-lasa-block-21',
+    'title'           => __('Block - 21'),
+    'description'     => __('Магазин книг'),
+    'render_template' => 'webdmitriev/blocks/block-21.php',
+    'category'        => 'block_news',
+    'icon'            => $icon,
+    'keywords'        => array('block'),
+    'mode'            => 'preview',
+    'example' => array(
+      'attributes' => array(
+        'mode' => 'preview',
+        'data' => array(
+          'gutenberg_preview' => '<img src="' . $image . 'block-21.jpg">'
+        )
+      )
+    )
+  ));
+
 });
 
 add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context) {
@@ -460,5 +480,6 @@ add_filter('allowed_block_types_all', function($allowed_blocks, $editor_context)
     'acf/rus-lasa-block-18',
     'acf/rus-lasa-block-19',
     'acf/rus-lasa-block-20',
+    'acf/rus-lasa-block-21',
   );
 }, 10, 2);
