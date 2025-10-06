@@ -94,40 +94,9 @@ $link = esc_url(get_field('link'));
   <div class="basket__popup-bg"></div>
   <button class="close-popup"></button>
   <div class="basket__popup-content scroll-line-none">
-    <p class="basket-text-count">В вашей корзине 3 товара</p>
+    <p class="basket-text-count">.</p>
 
-    <div class="basket__items">
-      <div class="basket__item">
-        <img src="<?= $url; ?>/webdmitriev/assets/img/block-21/image-01.jpg" alt="Rus Lasa" class="basket__item-img" />
-        <div class="basket__item-content">
-          <p class="basket__item-title">title</p>
-          <p class="basket__item-price">1500 руб</p>
-          <p class="basket__item-have">В наличии 20 шт</p>
-        </div>
-        <div class="basket__item-count">
-          <div class="count-minus"></div>
-          <div class="count-num">1</div>
-          <div class="count-plus"></div>
-        </div>
-        <div class="basket__item-sum">3000 руб</div>
-        <div class="basket__item-remove"></div>
-      </div>
-      <div class="basket__item">
-        <img src="<?= $url; ?>/webdmitriev/assets/img/block-21/image-01.jpg" alt="Rus Lasa" class="basket__item-img" />
-        <div class="basket__item-content">
-          <p class="basket__item-title">title</p>
-          <p class="basket__item-price">1500 руб</p>
-          <p class="basket__item-have">В наличии 20 шт</p>
-        </div>
-        <div class="basket__item-count">
-          <div class="count-minus"></div>
-          <div class="count-num">1</div>
-          <div class="count-plus"></div>
-        </div>
-        <div class="basket__item-sum">3000 руб</div>
-        <div class="basket__item-remove"></div>
-      </div>
-    </div>
+    <div class="basket__items"></div>
 
     <div class="basket__controls df-sp-ce w-100p">
       <div class="basket-clean">Удалить все</div>

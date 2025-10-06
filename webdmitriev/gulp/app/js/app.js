@@ -35,44 +35,47 @@ jQuery(document).ready(function ($) {
 
   // block-21
   if (document.querySelector('.block-21')) {
-    getCountBasket()
+    getCountBasket();
+
     function getCountBasket() {
-      const countBasket = (JSON.parse(localStorage.getItem("basket-webdmitriev")) || []).length
-      $(".block-21 .line-wrap .basket-button").attr("data-count", countBasket)
-      $(".basket__popup .basket__popup-content .basket-text-count").text(`В вашей корзине ${countBasket} товара`)
+      const basketData = JSON.parse(localStorage.getItem("basket-webdmitriev")) || [];
+      const totalCount = basketData.reduce((acc, item) => acc + item.count, 0);
+      $(".block-21 .line-wrap .basket-button").attr("data-count", totalCount);
+      $(".basket__popup .basket__popup-content .basket-text-count").text(`В вашей корзине ${totalCount} товара`);
     }
 
     function cleanPopupProduct() {
       $(".product__popup").hide();
-
-      $(".product__popup .product__img").attr("src", 'data:image/gif;base64,R0lGODlhBwAFAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAUAAAIFjI+puwUAOw==')
-      $(".product__popup .product__title").text('')
-      $(".product__popup .product__price").text('')
-      $(".product__popup .content__descr").text('')
-      $(".product__popup .btn").attr("product-id", '0')
+      $(".product__popup .product__img").attr("src", 'data:image/gif;base64,R0lGODlhBwAFAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAUAAAIFjI+puwUAOw==');
+      $(".product__popup .product__title").text('');
+      $(".product__popup .product__price").text('');
+      $(".product__popup .content__descr").text('');
+      $(".product__popup .btn").attr("product-id", '0');
     }
 
+    // Открытие всплывающего окна товара
     $(".block-21 .block__products .block__product").on("click", ".btn", function () {
-      const id = $(this).parents(".block__product").attr("data-id")
-      const title = $(this).parents(".block__product").find(".block__product-title").text()
-      const image = $(this).parents(".block__product").find(".block__product-img").attr("src")
-      const price = $(this).parents(".block__product").attr("data-price")
-      const descr = $(this).parents(".block__product").find(".block__product-descr").text()
+      const $p = $(this).parents(".block__product");
+      const id = $p.attr("data-id");
+      const title = $p.find(".block__product-title").text();
+      const image = $p.find(".block__product-img").attr("src");
+      const price = $p.attr("data-price");
+      const descr = $p.find(".block__product-descr").text();
 
-      $(".product__popup .product__img").attr("src", image)
-      $(".product__popup .product__title").text(title)
-      $(".product__popup .product__price").text(price)
-      $(".product__popup .content__descr").text(descr)
-      $(".product__popup .btn").attr("product-id", id)
-      $(".product__popup .btn").attr("disabled", false);
+      $(".product__popup .product__img").attr("src", image);
+      $(".product__popup .product__title").text(title);
+      $(".product__popup .product__price").text(price);
+      $(".product__popup .content__descr").text(descr);
+      $(".product__popup .btn").attr("product-id", id).attr("disabled", false);
 
       $(".product__popup").show();
-    })
+    });
 
     $(".product__popup").on("click", ".close-popup", function () {
-      cleanPopupProduct()
-    })
+      cleanPopupProduct();
+    });
 
+    // Добавление в корзину
     $(".product__popup").on("click", ".btn", function () {
       $(this).attr("disabled", true);
 
@@ -80,45 +83,148 @@ jQuery(document).ready(function ($) {
       const id = $(this).attr("product-id");
       const title = $popup.find(".product__title").text();
       const image = $popup.find(".product__img").attr("src");
-      const price = $popup.find(".product__price").text();
+      const price = Number($popup.find(".product__price").text());
       const descr = $popup.find(".content__descr").text();
 
-      // 1. Получаем текущую корзину
       let basket = JSON.parse(localStorage.getItem("basket-webdmitriev")) || [];
+      const existing = basket.find(item => item.id === id);
 
-      // 2. Проверяем, есть ли уже этот товар в корзине
-      const existingItem = basket.find(item => item.id === id);
-
-      if (existingItem) {
-        // 3а. Если товар уже есть — увеличиваем количество
-        existingItem.count += 1;
+      if (existing) {
+        existing.count++;
       } else {
-        // 3б. Если товара нет — добавляем новый объект
-        basket.push({
-          id: id,
-          title: title,
-          image: image,
-          price: price,
-          descr: descr,
-          count: 1
-        });
+        basket.push({ id, title, image, price, descr, count: 1 });
       }
 
-      // 4. Сохраняем обновлённый массив обратно
       localStorage.setItem("basket-webdmitriev", JSON.stringify(basket));
-
-      getCountBasket()
+      getCountBasket();
     });
 
-    // 
+    // Открытие корзины
     $(".block-21").on("click", ".basket-button", function () {
-      $(".basket__popup").show()
-    })
+      renderBasket();
+      $(".basket__popup").show();
+    });
 
-    $(".basket__popup").on("click", ".close-popup", function () {
-      $(".basket__popup").hide()
-    })
+    $(".basket__popup").on("click", ".close-popup, .basket__popup-bg", function () {
+      $(".basket__popup").hide();
+    });
+
+    // Рендер корзины
+    function renderBasket() {
+      const basket = JSON.parse(localStorage.getItem("basket-webdmitriev")) || [];
+      const basketItems = $(".basket__popup .basket__items");
+      basketItems.html('');
+
+      let total = 0;
+
+      basket.forEach(el => {
+        total += el.price * el.count;
+        basketItems.append(`
+        <div class="basket__item" product-id="${el.id}">
+          <img src="${el.image}" alt="${el.title}" class="basket__item-img" />
+          <div class="basket__item-content">
+            <p class="basket__item-title">${el.title}</p>
+            <p class="basket__item-price">${el.price} руб</p>
+          </div>
+          <div class="basket__item-count">
+            <div class="count-minus"></div>
+            <div class="count-num">${el.count}</div>
+            <div class="count-plus"></div>
+          </div>
+          <div class="basket__item-sum">${el.price * el.count} руб</div>
+          <div class="basket__item-remove"></div>
+        </div>
+      `);
+      });
+
+      $("#result-sum").text(`${total} руб`);
+
+      updateFormFields()
+    }
+
+    function updateFormFields() {
+      const basket = JSON.parse(localStorage.getItem("basket-webdmitriev")) || [];
+
+      // Преобразуем корзину в удобный текст
+      const itemsText = basket.map(item =>
+        `${item.title} — ${item.count} шт. × ${item.price} руб = ${item.count * item.price} руб`
+      ).join('\n');
+
+      const total = basket.reduce((acc, el) => acc + el.price * el.count, 0);
+
+      // Найдём скрытые поля в форме
+      const form = document.querySelector('.basket__form form');
+      if (!form) return;
+
+      const basketItemsInput = form.querySelector('input[name="basket-items"]');
+      const basketTotalInput = form.querySelector('input[name="basket-total"]');
+
+      if (basketItemsInput) basketItemsInput.value = itemsText;
+      if (basketTotalInput) basketTotalInput.value = total + ' руб';
+    }
+
+    // Минус
+    $(".basket__popup .basket__items").on("click", ".count-minus", function () {
+      const id = $(this).parents(".basket__item").attr("product-id");
+      let basket = JSON.parse(localStorage.getItem("basket-webdmitriev")) || [];
+      const item = basket.find(el => el.id === id);
+
+      if (item) {
+        item.count--;
+        if (item.count <= 0) {
+          basket = basket.filter(el => el.id !== id);
+        }
+        localStorage.setItem("basket-webdmitriev", JSON.stringify(basket));
+        renderBasket();
+        getCountBasket();
+      }
+    });
+
+    // Плюс
+    $(".basket__popup .basket__items").on("click", ".count-plus", function () {
+      const id = $(this).parents(".basket__item").attr("product-id");
+      let basket = JSON.parse(localStorage.getItem("basket-webdmitriev")) || [];
+      const item = basket.find(el => el.id === id);
+
+      if (item) {
+        item.count++;
+        localStorage.setItem("basket-webdmitriev", JSON.stringify(basket));
+        renderBasket();
+        getCountBasket();
+      }
+    });
+
+    // Удалить один товар
+    $(".basket__popup .basket__items").on("click", ".basket__item-remove", function () {
+      const id = $(this).parents(".basket__item").attr("product-id");
+      let basket = JSON.parse(localStorage.getItem("basket-webdmitriev")) || [];
+      basket = basket.filter(el => el.id !== id);
+      localStorage.setItem("basket-webdmitriev", JSON.stringify(basket));
+      renderBasket();
+      getCountBasket();
+    });
+
+    // Удалить всё
+    $(".basket-clean").on("click", function () {
+      localStorage.removeItem("basket-webdmitriev");
+      renderBasket();
+      getCountBasket();
+    });
+
+    // После успешной отправки формы CF7
+    document.addEventListener('wpcf7mailsent', function (event) {
+      // 1. Очищаем localStorage
+      localStorage.removeItem("basket-webdmitriev");
+
+      // 2. Обновляем UI корзины
+      renderBasket();
+      getCountBasket();
+
+      // 3. Закрываем попап корзины (опционально)
+      $(".basket__popup").hide();
+    }, false);
 
   }
+
 
 });
