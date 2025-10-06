@@ -33,4 +33,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  $('.block-24 .single__slider').each(function () {
+    const slider = $(this);
+    slider.slick({
+      autoplay: true,
+      autoplaySpeed: 700000,
+      dots: false,
+      infinite: true,
+      // variableWidth: true,
+      centerMode: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      prevArrow: $(".block-24 .single__slider-arrow-prev"),
+      nextArrow: $(".block-24 .single__slider-arrow-next"),
+      rows: 0,
+    });
+  });
+
 })
