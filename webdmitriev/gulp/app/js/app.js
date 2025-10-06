@@ -25,6 +25,17 @@ jQuery(document).ready(function ($) {
     })
   }
 
+  // btn-web-popups
+  $(".close-web-popup").on("click", function () {
+    $(".web-popup").removeClass("active")
+  })
+  $(".btn-web-popup-course").on("click", function () {
+    $(".web-popup-course").addClass("active")
+  })
+  $(".btn-web-popup-participation").on("click", function () {
+    $(".web-popup-participation").addClass("active")
+  })
+
   // block-20
   if (document.querySelector('.block-20')) {
     $(".block-20 #vacancy-filter").on("click", ".block-vacancy__header", function () {
@@ -223,7 +234,6 @@ jQuery(document).ready(function ($) {
       // 3. Закрываем попап корзины (опционально)
       $(".basket__popup").hide();
     }, false);
-
   }
 
 

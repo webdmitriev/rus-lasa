@@ -55,6 +55,9 @@
 				</div>
 			</div>
 		</footer>
+
+		<?php get_template_part('webdmitriev/popup'); ?>
+
 	</div>
 
 <?php wp_footer(); ?>
