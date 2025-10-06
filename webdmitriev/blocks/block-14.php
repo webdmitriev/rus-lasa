@@ -50,7 +50,7 @@ $text = wp_kses(get_field('text'), $allowed_tags);
             $categories = get_categories(['orderby' => 'name', 'order' => 'ASC']);
             foreach ($categories as $cat) :
             ?>
-              <div class="select-item" data-text="<?php echo esc_attr($cat->slug); ?>">
+              <div class="select-item">
                 <?php echo esc_html($cat->name); ?>
               </div>
             <?php endforeach; ?>

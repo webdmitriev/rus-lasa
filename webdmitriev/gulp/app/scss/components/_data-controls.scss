@@ -62,8 +62,9 @@
     .select-items .select-item {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
+      gap: 14px;
       width: 100%;
       font-family: $ff;
       font-weight: 400;
