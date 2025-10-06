@@ -39,6 +39,9 @@
       &.menu-item-has-children {
         position: relative;
       }
+      &.current_page_item a {
+        color: var(--lime-color);
+      }
       .sub-menu {
         position: absolute;
         left: 0;
@@ -252,6 +255,9 @@
         }
         &.menu-item-has-children a {
           margin-bottom: 4px;
+        }
+        &.current_page_item a {
+          color: var(--lime-color);
         }
         &:not(:last-child) {
           margin-bottom: 9px;

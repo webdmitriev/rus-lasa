@@ -4,7 +4,7 @@ jQuery(document).ready(function ($) {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => entry.isIntersecting ? entry.target.classList.add('isAnime') : entry.target.classList.remove('isAnime'))
-  }, { rootMargin: "-50px 0px -100px 0px" })
+  }, { rootMargin: "-5px 0px -100px 0px" })
 
   // block-02
   if (isAnimation && document.querySelector('.block-02')) {
@@ -111,6 +111,160 @@ jQuery(document).ready(function ($) {
 
     if (document.querySelector('.block-12 .btn')) {
       const btn = document.querySelectorAll('.block-12 .btn')
+      btn.forEach(el => observer.observe(el))
+    }
+  }
+
+  // block-13
+  if (isAnimation && document.querySelector('.block-13')) {
+    if (document.querySelector('.block-13 .descr')) {
+      const btn = document.querySelectorAll('.block-13 .descr')
+      btn.forEach(el => observer.observe(el))
+    }
+  }
+
+  // block-15
+  if (isAnimation && document.querySelector('.block-15')) {
+    if (document.querySelector('.block-15 .sup_title')) {
+      const btn = document.querySelectorAll('.block-15 .sup_title')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-15 .descr')) {
+      const btn = document.querySelectorAll('.block-15 .descr')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-15 .sect_title')) {
+      const btn = document.querySelectorAll('.block-15 .sect_title')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-15 .block-content ul li')) {
+      const btn = document.querySelectorAll('.block-15 .block-content ul li')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-15 .block-bottom')) {
+      const btn = document.querySelectorAll('.block-15 .block-bottom')
+      btn.forEach(el => observer.observe(el))
+    }
+  }
+
+  // block-16
+  if (isAnimation && document.querySelector('.block-16')) {
+    if (document.querySelector('.block-16 .sect_title')) {
+      const btn = document.querySelectorAll('.block-16 .sect_title')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-16 .img')) {
+      const btn = document.querySelectorAll('.block-16 .img')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-16 .descr')) {
+      const btn = document.querySelectorAll('.block-16 .descr')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-16 .table-container')) {
+      const btn = document.querySelectorAll('.block-16 .table-container')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-16 .link')) {
+      const btn = document.querySelectorAll('.block-16 .link')
+      btn.forEach(el => observer.observe(el))
+    }
+  }
+
+  // block-17
+  if (isAnimation && document.querySelector('.block-17')) {
+    if (document.querySelector('.block-17 .sect_title')) {
+      const btn = document.querySelectorAll('.block-17 .sect_title')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-17 .post-item')) {
+      const btn = document.querySelectorAll('.block-17 .post-item')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-17 .btn')) {
+      const btn = document.querySelectorAll('.block-17 .btn')
+      btn.forEach(el => observer.observe(el))
+    }
+  }
+
+  // block-18
+  if (isAnimation && document.querySelector('.block-18')) {
+    if (document.querySelector('.block-18 .sect_title')) {
+      const btn = document.querySelectorAll('.block-18 .sect_title')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-18 .descr')) {
+      const btn = document.querySelectorAll('.block-18 .descr')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-18 .d-block')) {
+      const btn = document.querySelectorAll('.block-18 .d-block')
+      btn.forEach(el => observer.observe(el))
+    }
+  }
+
+  // block-19
+  if (isAnimation && document.querySelector('.block-19')) {
+    if (document.querySelector('.block-19 .descr')) {
+      const btn = document.querySelectorAll('.block-19 .descr')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-19 .btn')) {
+      const btn = document.querySelectorAll('.block-19 .btn')
+      btn.forEach(el => observer.observe(el))
+    }
+  }
+
+  // block-22
+  if (isAnimation && document.querySelector('.block-22')) {
+    if (document.querySelector('.block-22 .sect_title')) {
+      const btn = document.querySelectorAll('.block-22 .sect_title')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-22 .sub_title')) {
+      const btn = document.querySelectorAll('.block-22 .sub_title')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-22 ul li')) {
+      const btn = document.querySelectorAll('.block-22 ul li')
+      btn.forEach(el => observer.observe(el))
+    }
+  }
+
+  // block-23
+  if (isAnimation && document.querySelector('.block-23')) {
+    if (document.querySelector('.block-23 .sect_title')) {
+      const btn = document.querySelectorAll('.block-23 .sect_title')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-23 ul li')) {
+      const btn = document.querySelectorAll('.block-23 ul li')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-23 .descr')) {
+      const btn = document.querySelectorAll('.block-23 .descr')
+      btn.forEach(el => observer.observe(el))
+    }
+
+    if (document.querySelector('.block-23 .btn')) {
+      const btn = document.querySelectorAll('.block-23 .btn')
       btn.forEach(el => observer.observe(el))
     }
   }
