@@ -231,6 +231,25 @@
           text-transform: capitalize;
           color: var(--accent-color);
         }
+        .sub-menu {
+          padding-left: 14px;
+          li a {
+            position: relative;
+            font-size: 15px;
+            &:before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: -12px;
+              display: block;
+              width: 5px;
+              height: 5px;
+              background-color: var(--accent-color);
+              border-radius: 10px;
+              transform: translateY(-50%);
+            }
+          }
+        }
         &.menu-item-has-children a {
           margin-bottom: 4px;
         }
