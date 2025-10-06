@@ -37,8 +37,9 @@ jQuery(document).ready(function ($) {
   if (document.querySelector('.block-21')) {
     getCountBasket()
     function getCountBasket() {
-      const countBasket = (JSON.parse(localStorage.getItem("wwww")) || []).length
+      const countBasket = (JSON.parse(localStorage.getItem("basket-webdmitriev")) || []).length
       $(".block-21 .line-wrap .basket-button").attr("data-count", countBasket)
+      $(".basket__popup .basket__popup-content .basket-text-count").text(`В вашей корзине ${countBasket} товара`)
     }
 
     function cleanPopupProduct() {
@@ -105,9 +106,15 @@ jQuery(document).ready(function ($) {
 
       // 4. Сохраняем обновлённый массив обратно
       localStorage.setItem("basket-webdmitriev", JSON.stringify(basket));
+
+      getCountBasket()
     });
 
     // 
+    $(".block-21").on("click", ".basket-button", function () {
+      $(".basket__popup").show()
+    })
+
     $(".basket__popup").on("click", ".close-popup", function () {
       $(".basket__popup").hide()
     })

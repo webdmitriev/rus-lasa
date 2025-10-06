@@ -69,6 +69,7 @@ $link = esc_url(get_field('link'));
           <button class="btn">Подробнее о товаре</button>
         </div>
       </div>
+
     </div>
   <?php endif; ?>
 </section>
@@ -89,7 +90,7 @@ $link = esc_url(get_field('link'));
   </div>
 </div>
 
-<div class="basket__popup">
+<div class="basket__popup" style="display: none;">
   <div class="basket__popup-bg"></div>
   <button class="close-popup"></button>
   <div class="basket__popup-content scroll-line-none">
@@ -97,10 +98,48 @@ $link = esc_url(get_field('link'));
 
     <div class="basket__items">
       <div class="basket__item">
-        www
+        <img src="<?= $url; ?>/webdmitriev/assets/img/block-21/image-01.jpg" alt="Rus Lasa" class="basket__item-img" />
+        <div class="basket__item-content">
+          <p class="basket__item-title">title</p>
+          <p class="basket__item-price">1500 руб</p>
+          <p class="basket__item-have">В наличии 20 шт</p>
+        </div>
+        <div class="basket__item-count">
+          <div class="count-minus"></div>
+          <div class="count-num">1</div>
+          <div class="count-plus"></div>
+        </div>
+        <div class="basket__item-sum">3000 руб</div>
+        <div class="basket__item-remove"></div>
+      </div>
+      <div class="basket__item">
+        <img src="<?= $url; ?>/webdmitriev/assets/img/block-21/image-01.jpg" alt="Rus Lasa" class="basket__item-img" />
+        <div class="basket__item-content">
+          <p class="basket__item-title">title</p>
+          <p class="basket__item-price">1500 руб</p>
+          <p class="basket__item-have">В наличии 20 шт</p>
+        </div>
+        <div class="basket__item-count">
+          <div class="count-minus"></div>
+          <div class="count-num">1</div>
+          <div class="count-plus"></div>
+        </div>
+        <div class="basket__item-sum">3000 руб</div>
+        <div class="basket__item-remove"></div>
       </div>
     </div>
 
+    <div class="basket__controls df-sp-ce w-100p">
+      <div class="basket-clean">Удалить все</div>
+      <div class="basket__controls-count df-sp-ce w-100p">
+        <p class="descr">Сумма:</p>
+        <p id="result-sum">3200 руб</p>
+      </div>
+    </div>
+
+    <div class="basket__form">
+      <?= do_shortcode('[contact-form-7 id="298b3d4" title="Basket"]'); ?>
+    </div>
   </div>
 </div>
 <?php endif; ?>
