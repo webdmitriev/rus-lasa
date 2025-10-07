@@ -22,17 +22,20 @@ $allowed_tags = array(
   'li'  => array(),
 );
 
-$date         = wp_kses(get_field('date'), $allowed_tags);
-$title        = wp_kses(get_field('title'), $allowed_tags);
-$descr        = wp_kses(get_field('descr'), $allowed_tags);
+$date           = wp_kses(get_field('date'), $allowed_tags);
+$title          = wp_kses(get_field('title'), $allowed_tags);
+$descr          = wp_kses(get_field('descr'), $allowed_tags);
 
-$btn_reg_text = wp_kses(get_field('btn_reg_text'), $allowed_tags);
+$btn_reg_text   = wp_kses(get_field('btn_reg_text'), $allowed_tags);
+$btn_reg_popup  = get_field('btn_reg_popup');
 
-$gallery      = get_field("gallery");
-$slider       = get_field("slider");
+$gallery        = get_field("gallery");
+$slider         = get_field("slider");
 
-$btn_pdf_text = wp_kses(get_field('btn_pdf_text'), $allowed_tags);
-$btn_pdf_file = esc_url(get_field('btn_pdf_file'));
+$btn_text       = wp_kses(get_field('btn_text'), $allowed_tags);
+$btn_is_link    = get_field('btn_is_link');
+$btn_link       = esc_url(get_field('btn_link'));
+$btn_popup      = get_field('btn_popup');
 
 ?>
 
@@ -50,7 +53,7 @@ $btn_pdf_file = esc_url(get_field('btn_pdf_file'));
         <?php if($date): ?><p class="single__date"><?= $date; ?></p><?php endif; ?>
         <?php if($title): ?><p class="single__title"><?= $title; ?></p><?php endif; ?>
         <?php if($descr): ?><p class="single__descr"><?= $descr; ?></p><?php endif; ?>
-        <?php if($btn_reg_text): ?><button class="btn single__register"><?= $btn_reg_text; ?></button><?php endif; ?>
+        <?php if($btn_reg_text): ?><button class="btn single__register <?= $btn_reg_popup; ?>"><?= $btn_reg_text; ?></button><?php endif; ?>
 
         <?php if($gallery): ?>
           <div class="single__galleries">
@@ -72,7 +75,13 @@ $btn_pdf_file = esc_url(get_field('btn_pdf_file'));
           </div>
         <?php endif; ?>
 
-        <?php if($btn_pdf_text): ?><a href="<?= $btn_pdf_file; ?>" class="btn single__pdf" download><?= $btn_pdf_text; ?></a><?php endif; ?>
+        <?php if($btn_text): ?>
+          <?php if($btn_is_link): ?>
+            <a href="<?= $btn_link; ?>" target="_blank" rel="noopener noreferrer" class="btn single__pdf"><?= $btn_text; ?></a>
+          <?php else: ?>
+            <button class="btn single__pdf <?= $btn_popup; ?>"><?= $btn_text; ?></button>
+          <?php endif; ?>
+        <?php endif; ?>
       </div>
     </div>
   <?php endif; ?>

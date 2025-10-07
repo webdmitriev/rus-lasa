@@ -23,7 +23,12 @@ $allowed_tags = array(
 $bgc          = get_field('bgc') ? get_field('bgc') : '--bg-gray-color';
 $image        = esc_url(get_field('image'));
 $sum_people   = wp_kses(get_field('sum_people'), $allowed_tags);
+
 $btn_text     = wp_kses(get_field('btn_text'), $allowed_tags);
+$btn_is_link  = get_field('btn_is_link');
+$btn_link     = esc_url(get_field('btn_link'));
+$btn_popup    = get_field('btn_popup');
+
 $btn_sub_text = wp_kses(get_field('btn_sub_text'), $allowed_tags);
 
 
@@ -45,7 +50,13 @@ $btn_sub_text = wp_kses(get_field('btn_sub_text'), $allowed_tags);
           <?php if($sum_people): ?><span class="descr" data-before="Нас уже:" data-after="человек(а)"><?= $sum_people; ?></span><?php endif; ?>
         </div>
         <div class="block__content">
-          <?php if($btn_text): ?><button class="btn"><?= $btn_text; ?></button><?php endif; ?>
+          <?php if($btn_text): ?>
+            <?php if($btn_is_link): ?>
+              <a href="<?= $btn_link; ?>" target="_blank" rel="noopener noreferrer" class="btn"><?= $btn_text; ?></a>
+            <?php else: ?>
+              <button class="btn <?= $btn_popup; ?>"><?= $btn_text; ?></button>
+            <?php endif; ?>
+          <?php endif; ?>
           <?php if($btn_sub_text): ?><p class="descr"><?= $btn_sub_text; ?></p><?php endif; ?>
         </div>
       </div>

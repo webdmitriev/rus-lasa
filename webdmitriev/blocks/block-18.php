@@ -25,10 +25,9 @@ $allowed_tags = array(
 $bgc      = get_field('bgc') ? get_field('bgc') : '--bg-gray-color';
 $title    = wp_kses(get_field('title'), $allowed_tags);
 $descr    = wp_kses(get_field('descr'), $allowed_tags);
-$elements = get_field('elements'); // descr, btn_text, btn_link
+$elements = get_field('elements'); // descr, btn_text, btn_is_link, btn_link, btn_popup
 
 ?>
-<?php if(false): ?>www<?php endif; ?>
 
 <!-- <?= $block_path; ?> (start) -->
 <section class="<?= $block_path; ?>" style="background-color: var(<?= $bgc; ?>)">
@@ -46,7 +45,15 @@ $elements = get_field('elements'); // descr, btn_text, btn_link
       <?php if( have_rows('elements') ): while ( have_rows('elements') ): the_row(); ?>
         <div class="d-block">
           <?php if(get_sub_field('descr')): ?><p class="descr"><?= get_sub_field('descr'); ?></p><?php endif; ?>
-          <?php if(get_sub_field('btn_text')): ?><a href="<?= get_sub_field('btn_link'); ?>" class="btn" download><?= get_sub_field('btn_text'); ?></a><?php endif; ?>
+
+          <?php if(get_sub_field('btn_text')): ?>
+            <?php if(get_sub_field('btn_is_link')): ?>
+              <a href="<?= get_sub_field('btn_link'); ?>" target="_blank" rel="noopener noreferrer" class="btn"><?= get_sub_field('btn_text'); ?></a>
+            <?php else: ?>
+              <button class="btn <?= get_sub_field('btn_popup'); ?>"><?= get_sub_field('btn_text'); ?></button>
+            <?php endif; ?>
+          <?php endif; ?>
+
         </div>
       <?php endwhile; endif; ?>
     </div>

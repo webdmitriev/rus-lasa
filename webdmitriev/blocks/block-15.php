@@ -28,7 +28,11 @@ $title        = wp_kses(get_field('title'), $allowed_tags);
 $text         = wp_kses(get_field('text'), $allowed_tags);
 $bottom_text  = wp_kses(get_field('bottom_text'), $allowed_tags);
 $bottom_price = wp_kses(get_field('bottom_price'), $allowed_tags);
+
 $btn_text     = wp_kses(get_field('btn_text'), $allowed_tags);
+$btn_is_link  = get_field('btn_is_link');
+$btn_link     = esc_url(get_field('btn_link'));
+$btn_popup    = get_field('btn_popup');
 
 $bg_1920    = get_field('bg_1920') ? "background: url(" . esc_url(get_field('bg_1920')) . ") center / cover no-repeat;filter: blur(".get_field('blur_1920')."px);"  : '';
 $bg_991     = get_field('bg_991') ? "background: url(" . esc_url(get_field('bg_991')) . ") center / cover no-repeat;filter: blur(".get_field('blur_991')."px);"  : '';
@@ -56,7 +60,15 @@ $numAttr = rand(1, 100000);
         <div class="block-bottom">
           <?php if($bottom_text): ?><p class="descr"><?= $bottom_text; ?></p><?php endif; ?>
           <?php if($bottom_price): ?><span class="sup_title"><?= $bottom_price; ?></span><?php endif; ?>
-          <?php if($btn_text): ?><button class="btn"><?= $btn_text; ?></button><?php endif; ?>
+
+          <?php if($btn_text): ?>
+            <?php if($btn_is_link): ?>
+              <a href="<?= $btn_link; ?>" target="_blank" rel="noopener noreferrer" class="btn"><?= $btn_text; ?></a>
+            <?php else: ?>
+              <button class="btn <?= $btn_popup; ?>"><?= $btn_text; ?></button>
+            <?php endif; ?>
+          <?php endif; ?>
+
         </div>
       </div>
     </div>

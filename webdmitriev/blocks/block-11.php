@@ -20,7 +20,7 @@ $allowed_tags = array(
   )
 );
 
-$posts = get_field('posts'); // title, image, descr, btn_text, btn_link
+$posts = get_field('posts'); // title, image, descr, btn_text, btn_is_link, btn_link, btn_popup
 
 ?>
 
@@ -40,7 +40,15 @@ $posts = get_field('posts'); // title, image, descr, btn_text, btn_link
           <div class="block__post-content">
             <?php if(get_sub_field('title')): ?><span class="block__post-content__title"><?= get_sub_field('title'); ?></span><?php endif; ?>
             <?php if(get_sub_field('descr')): ?><span class="block__post-content__descr"><?= get_sub_field('descr'); ?></span><?php endif; ?>
-            <?php if(get_sub_field('btn_text')): ?><a href="<?= get_sub_field('btn_link'); ?>" class="btn"><?= get_sub_field('btn_text'); ?></a><?php endif; ?>
+
+            <?php if(get_sub_field('btn_text')): ?>
+              <?php if(get_sub_field('btn_is_link')): ?>
+                <a href="<?= get_sub_field('btn_link'); ?>" target="_blank" rel="noopener noreferrer" class="btn"><?= get_sub_field('btn_text'); ?></a>
+              <?php else: ?>
+                <button class="btn <?= get_sub_field('btn_popup'); ?>"><?= get_sub_field('btn_text'); ?></button>
+              <?php endif; ?>
+            <?php endif; ?>
+
           </div>
         </div>
       <?php endwhile; endif; ?>

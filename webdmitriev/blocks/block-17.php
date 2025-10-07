@@ -25,7 +25,11 @@ $allowed_tags = array(
 $bgc      = get_field('bgc') ? get_field('bgc') : '--bg-gray-color';
 $title    = wp_kses(get_field('title'), $allowed_tags);
 $news     = get_field('news');
-$btn_text = wp_kses(get_field('btn_text'), $allowed_tags);
+
+$btn_text     = wp_kses(get_field('btn_text'), $allowed_tags);
+$btn_is_link  = get_field('btn_is_link');
+$btn_link     = esc_url(get_field('btn_link'));
+$btn_popup    = get_field('btn_popup');
 
 ?>
 
@@ -57,7 +61,13 @@ $btn_text = wp_kses(get_field('btn_text'), $allowed_tags);
         <?php endforeach; endif; ?>
       </div>
 
-      <?php if($btn_text): ?><button class="btn"><?= $btn_text; ?></button><?php endif; ?>
+      <?php if($btn_text): ?>
+        <?php if($btn_is_link): ?>
+          <a href="<?= $btn_link; ?>" target="_blank" rel="noopener noreferrer" class="btn"><?= $btn_text; ?></a>
+        <?php else: ?>
+          <button class="btn <?= $btn_popup; ?>"><?= $btn_text; ?></button>
+        <?php endif; ?>
+      <?php endif; ?>
     </div>
   <?php endif; ?>
 </section>

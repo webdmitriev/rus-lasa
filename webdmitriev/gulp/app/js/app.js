@@ -30,11 +30,11 @@ jQuery(document).ready(function ($) {
     $(".web-popup").removeClass("active")
   })
   function showPopups(btn, popup) {
-    btn.on("click", () => popup.addClass("active"))
+    $("body").on("click", btn, () => popup.addClass("active"))
   }
-  showPopups($(".btn-web-popup-course"), $(".web-popup-course"))
-  showPopups($(".btn-web-popup-participation"), $(".web-popup-participation"))
-  showPopups($(".btn-web-popup-default"), $(".web-popup-default"))
+  showPopups(".btn-web-popup-course", $(".web-popup-course"))
+  showPopups(".btn-web-popup-participation", $(".web-popup-participation"))
+  showPopups(".btn-web-popup-default", $(".web-popup-default"))
 
   // block-20
   if (document.querySelector('.block-20')) {

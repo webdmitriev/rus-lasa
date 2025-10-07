@@ -22,15 +22,14 @@ $allowed_tags = array(
   'li'  => array(),
 );
 
-$text         = wp_kses(get_field('text'), $allowed_tags);
-$btn_01_text  = wp_kses(get_field('btn_01_text'), $allowed_tags);
-$btn_02_text  = wp_kses(get_field('btn_02_text'), $allowed_tags);
+$text     = wp_kses(get_field('text'), $allowed_tags);
+$btns     = get_field('btns'); // btn_text, btn_is_link, btn_link, btn_popup
 
-$bg_1920      = get_field('bg_1920') ? "background: url(" . esc_url(get_field('bg_1920')) . ") center / cover no-repeat;filter: blur(".get_field('blur_1920')."px);"  : '';
-$bg_991       = get_field('bg_991') ? "background: url(" . esc_url(get_field('bg_991')) . ") center / cover no-repeat;filter: blur(".get_field('blur_991')."px);"  : '';
-$bg_576       = get_field('bg_576') ? "background: url(" . esc_url(get_field('bg_576')) . ") center / cover no-repeat;filter: blur(".get_field('blur_576')."px);"  : '';
+$bg_1920  = get_field('bg_1920') ? "background: url(" . esc_url(get_field('bg_1920')) . ") center / cover no-repeat;filter: blur(".get_field('blur_1920')."px);"  : '';
+$bg_991   = get_field('bg_991') ? "background: url(" . esc_url(get_field('bg_991')) . ") center / cover no-repeat;filter: blur(".get_field('blur_991')."px);"  : '';
+$bg_576   = get_field('bg_576') ? "background: url(" . esc_url(get_field('bg_576')) . ") center / cover no-repeat;filter: blur(".get_field('blur_576')."px);"  : '';
 
-$numAttr      = rand(1, 100000);
+$numAttr  = rand(1, 100000);
 
 ?>
 
@@ -47,8 +46,19 @@ $numAttr      = rand(1, 100000);
     <div class="container">
       <div class="line-wrap">
         <?php if($text): ?><p class="descr"><?= $text; ?></p><?php endif; ?>
-        <?php if($btn_01_text): ?><button class="btn"><?= $btn_01_text; ?></button><?php endif; ?>
-        <?php if($btn_02_text): ?><button class="btn"><?= $btn_02_text; ?></button><?php endif; ?>
+
+        <?php if( have_rows('btns') ): while ( have_rows('btns') ): the_row(); ?>
+
+          <?php if(get_sub_field('btn_text')): ?>
+            <?php if(get_sub_field('btn_is_link')): ?>
+              <a href="<?= get_sub_field('btn_link'); ?>" target="_blank" rel="noopener noreferrer" class="btn"><?= get_sub_field('btn_text'); ?></a>
+            <?php else: ?>
+              <button class="btn <?= get_sub_field('btn_popup'); ?>"><?= get_sub_field('btn_text'); ?></button>
+            <?php endif; ?>
+          <?php endif; ?>
+
+        <?php endwhile; endif; ?>
+
       </div>
     </div>
   <?php endif; ?>

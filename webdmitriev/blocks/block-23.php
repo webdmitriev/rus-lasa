@@ -45,7 +45,15 @@ $btns         = get_field('btns'); // btn_text
         <?php if($descr_points): ?><?= $descr_points; ?><?php endif; ?>
         <?php if($descr): ?><p class="descr"><?= $descr; ?></p><?php endif; ?>
         <?php if( have_rows('btns') ): while ( have_rows('btns') ): the_row(); ?>
-          <button class="btn"><?= get_sub_field('btn_text'); ?></button>
+
+          <?php if(get_sub_field('btn_text')): ?>
+            <?php if(get_sub_field('btn_link')): ?>
+              <a href="<?= get_sub_field('btn_link'); ?>" target="_blank" rel="noopener noreferrer" class="btn"><?= get_sub_field('btn_text'); ?></a>
+            <?php else: ?>
+              <button class="btn <?= get_sub_field('btn_popup'); ?>"><?= get_sub_field('btn_text'); ?></button>
+            <?php endif; ?>
+          <?php endif; ?>
+
         <?php endwhile; endif; ?>
       </div>
     </div>

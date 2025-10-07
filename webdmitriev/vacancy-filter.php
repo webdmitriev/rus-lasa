@@ -63,7 +63,7 @@ function ajax_filter_vacancies() {
           </div>
           <div class="block-vacancy__content" style="display: none;">
             <?php if(get_field("description")): ?><?= get_field("description"); ?><?php endif; ?>
-            <button class="btn">Оставить заявку</button>
+            <?php if(get_field("btn_text")): ?><button class="btn <?= get_field("btn_popup"); ?>"><?= get_field("btn_text"); ?></button><?php endif; ?>
           </div>
         </div>
       <?php endwhile;

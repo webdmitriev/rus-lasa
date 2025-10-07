@@ -21,7 +21,7 @@ $allowed_tags = array(
 );
 
 $title = wp_kses(get_field('title'), $allowed_tags);
-$btns = get_field('btns'); // btn_text, btn_link
+$btns = get_field('btns'); // btn_text, btn_is_link, btn_link, btn_popup
 
 ?>
 
@@ -37,7 +37,17 @@ $btns = get_field('btns'); // btn_text, btn_link
     <div class="container">
       <?php if($title): ?><h2 class="block-title"><?= $title; ?></h2><?php endif; ?>
       <?php if( have_rows('btns') ): while ( have_rows('btns') ): the_row(); ?>
-        <div class="block-wrap"><a href="<?= get_sub_field('btn_link'); ?>" class="btn"><?= get_sub_field('btn_text'); ?></a></div>
+        <div class="block-wrap">
+
+          <?php if(get_sub_field('btn_text')): ?>
+            <?php if(get_sub_field('btn_is_link')): ?>
+              <a href="<?= get_sub_field('btn_link'); ?>" target="_blank" rel="noopener noreferrer" class="btn"><?= get_sub_field('btn_text'); ?></a>
+            <?php else: ?>
+              <button class="btn <?= get_sub_field('btn_popup'); ?>"><?= get_sub_field('btn_text'); ?></button>
+            <?php endif; ?>
+          <?php endif; ?>
+
+        </div>
       <?php endwhile; endif; ?>
     </div>
   <?php endif; ?>

@@ -21,7 +21,11 @@ $allowed_tags = array(
 );
 
 $slider   = get_field('slider');
-$btn_text = wp_kses(get_field('btn_text'), $allowed_tags);
+
+$btn_text     = wp_kses(get_field('btn_text'), $allowed_tags);
+$btn_is_link  = get_field('btn_is_link');
+$btn_link     = esc_url(get_field('btn_link'));
+$btn_popup    = get_field('btn_popup');
 
 ?>
 
@@ -38,9 +42,7 @@ $btn_text = wp_kses(get_field('btn_text'), $allowed_tags);
       <?php if( $slider ): ?>
         <div class="block-slider">
           <?php foreach( $slider as $image ): ?>
-            <div class="block-slide">
-              <img src="<?= $image; ?>" alt="Rus Lasa" />
-            </div>
+            <div class="block-slide"><img src="<?= $image; ?>" alt="Rus Lasa" /></div>
           <?php endforeach; ?>
         </div>
       <?php endif; ?>
@@ -51,7 +53,14 @@ $btn_text = wp_kses(get_field('btn_text'), $allowed_tags);
           <button class="block-slider__arrow block-slider__arrow-next"></button>
         </div>
       <?php endif; ?>
-      <?php if($btn_text): ?><a href="#" class="btn"><?= $btn_text; ?></a><?php endif; ?>
+
+      <?php if($btn_text): ?>
+        <?php if($btn_is_link): ?>
+          <a href="<?= $btn_link; ?>" target="_blank" rel="noopener noreferrer" class="btn"><?= $btn_text; ?></a>
+        <?php else: ?>
+          <button class="btn <?= $btn_popup; ?>"><?= $btn_text; ?></button>
+        <?php endif; ?>
+      <?php endif; ?>
     </div>
   <?php endif; ?>
 </section>
