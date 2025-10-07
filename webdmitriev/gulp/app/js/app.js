@@ -29,12 +29,12 @@ jQuery(document).ready(function ($) {
   $(".close-web-popup").on("click", function () {
     $(".web-popup").removeClass("active")
   })
-  $(".btn-web-popup-course").on("click", function () {
-    $(".web-popup-course").addClass("active")
-  })
-  $(".btn-web-popup-participation").on("click", function () {
-    $(".web-popup-participation").addClass("active")
-  })
+  function showPopups(btn, popup) {
+    btn.on("click", () => popup.addClass("active"))
+  }
+  showPopups($(".btn-web-popup-course"), $(".web-popup-course"))
+  showPopups($(".btn-web-popup-participation"), $(".web-popup-participation"))
+  showPopups($(".btn-web-popup-default"), $(".web-popup-default"))
 
   // block-20
   if (document.querySelector('.block-20')) {
