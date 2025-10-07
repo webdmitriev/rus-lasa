@@ -1,3 +1,14 @@
+<div id="cookie-popup" class="cookie-popup" role="dialog" aria-live="polite" aria-label="Информация о куки" aria-hidden="true">
+  <div class="cookie-popup__inner">
+    <p class="cookie-popup__text">Мы используем файлы cookie для улучшения работы сайта и персонализации. Продолжая пользоваться сайтом, вы соглашаетесь с нашей политикой.</p>
+    <div class="cookie-popup__controls">
+      <button class="cookie-popup__accept" id="cookie-accept">Принять</button>
+      <button class="cookie-popup__close" id="cookie-close" aria-label="Закрыть всплывающее окно">✕</button>
+    </div>
+  </div>
+</div>
+
+
 <!-- btn-web-popup-course / web-popup-course -->
 <div class="web-popup web-popup-course">
   <div class="popup-bg"></div>
