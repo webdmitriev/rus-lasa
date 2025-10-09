@@ -124,7 +124,8 @@
       }
     }
   }
-  #vacancy-filter #vacancy-search-form {
+  #vacancy-filter #vacancy-search-form,
+  #affairs-filter #affairs-search-form {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;

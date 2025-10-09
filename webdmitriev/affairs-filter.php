@@ -1,5 +1,5 @@
 <?php
-// AJAX фильтр вакансий
+// AJAX фильтр мероприятий
 function ajax_filter_affairs() {
   $search = isset($_POST['s']) ? sanitize_text_field($_POST['s']) : '';
   $cat    = isset($_POST['categories']) ? sanitize_text_field($_POST['categories']) : '';
@@ -32,12 +32,17 @@ function ajax_filter_affairs() {
   $query = new WP_Query($args);
 
   if ($query->have_posts()) :
-    echo '<div class="www">';
+    echo '<div class="data-posts">';
       while ($query->have_posts()) : $query->the_post(); ?>
-        <div class="www">
-          <div class="www">
-            <h3 class="www"><?php the_title(); ?></h3>
+        <div class="post-item">
+          <div class="post-date">
+            <div class="post-date__num"><?= get_the_date('j'); ?></div>
+            <div class="post-date__month"><?= get_the_date('F'); ?></div>
+            <div class="post-date__year"><?= get_the_date('Y'); ?></div>
           </div>
+          <h3 class="post-title"><?php the_title(); ?></h3>
+          <div class="post-excerpt"><?= get_field('excerpt', get_the_ID()); ?></div>
+          <a href="<?php the_permalink(); ?>" class="post-link">Читать дальше</a>
         </div>
       <?php endwhile;
     echo '</div>';

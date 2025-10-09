@@ -28,7 +28,7 @@ $link = esc_url(get_field('link'));
 ?>
 
 <!-- <?= $block_path; ?> (start) -->
-<section class="<?= $block_path; ?>">
+<section class="<?= $block_path; ?> block-20">
   <?php if( is_admin() ) : ?>
     <style>[data="gutenberg-preview-img"] img {width: 100%;object-fit: contain;}</style>
     <div class="gutenberg-block" style="padding: 10px 20px;background-color: #F5F5F5;border: 1px solid #D1D1D1;"><?= $gutenberg_title; ?></div>
@@ -37,11 +37,11 @@ $link = esc_url(get_field('link'));
 
   <?php if( !is_admin() ) : ?>
     <div class="container">
-      <h2 class="sect_title">Вакансии</h2>
+      <h2 class="sect_title">Мероприятия</h2>
 
       <div id="affairs-filter">
         <form id="affairs-search-form">
-          <input type="text" id="affairs-search" name="s" placeholder="Поиск по вакансиям...">
+          <input type="text" id="affairs-search" name="s" placeholder="Поиск по мероприятиям...">
 
           <select id="affairs-categories" name="categories">
             <option value="">Категории</option>
