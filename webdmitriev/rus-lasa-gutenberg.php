@@ -46,3 +46,9 @@ require get_template_directory() . '/webdmitriev/news-filter.php';
  * Vacancy filter
  */
 require get_template_directory() . '/webdmitriev/vacancy-filter.php';
+
+
+/**
+ * Affairs filter
+ */
+require get_template_directory() . '/webdmitriev/affairs-filter.php';
