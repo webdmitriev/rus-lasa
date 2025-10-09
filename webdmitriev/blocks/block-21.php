@@ -41,25 +41,27 @@ $books_merch = get_field('books_merch'); // badge, price, descr
     <div class="container">
       <div class="line-wrap df-sp-fs w-100p">
         <div class="block-content">
-          <h2 class="sect_title"><?= $title; ?></h2>
-          <p class="descr"><?= $sub_title; ?></p>
+          <?php if($title): ?><h2 class="sect_title"><?= $title; ?></h2><?php endif; ?>
+          <?php if($sub_title): ?><p class="descr"><?= $sub_title; ?></p><?php endif; ?>
         </div>
         <button class="basket-button" data-count="0"></button>
       </div>
 
-      <div class="block__products">
-        <?php if( $books_merch ): foreach( $books_merch as $post):
-          $thumbnail_url = get_the_post_thumbnail_url($post->ID);
-          ?>
-          <div class="block__product" data-id="<?= $post->ID; ?>" data-price="<?= get_field('price', $post->ID ); ?>">
-            <img src="<?= $thumbnail_url ? $thumbnail_url : $image_base64; ?>" alt="Rus Lasa" class="block__product-img" />
-            <p class="block__product-title"><?= get_the_title($post->ID); ?></p>
-            <p class="block__product-price"><?= get_field('price', $post->ID ); ?> руб</p>
-            <div class="block__product-descr" style="display: none;"><?= get_field('descr', $post->ID ); ?></div>
-            <button class="btn">Подробнее о товаре</button>
-          </div>
-        <?php endforeach; endif; ?>
-      </div>
+      <?php if( $books_merch ): ?>
+        <div class="block__products">
+          <?php foreach( $books_merch as $post):
+            $thumbnail_url = get_the_post_thumbnail_url($post->ID);
+            ?>
+            <div class="block__product" data-badge="<?= get_field('badge', $post->ID ); ?>" data-id="<?= $post->ID; ?>" data-price="<?= get_field('price', $post->ID ); ?>">
+              <img src="<?= $thumbnail_url ? $thumbnail_url : $image_base64; ?>" alt="Rus Lasa" class="block__product-img" />
+              <p class="block__product-title"><?= get_the_title($post->ID); ?></p>
+              <p class="block__product-price"><?= get_field('price', $post->ID ); ?> руб</p>
+              <div class="block__product-descr" style="display: none;"><?= get_field('descr', $post->ID ); ?></div>
+              <button class="btn">Подробнее о товаре</button>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
 
     </div>
   <?php endif; ?>

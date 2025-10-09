@@ -53,12 +53,30 @@
     max-width: 1078px;
     margin: 0 auto;
     .block__product {
+      position: relative;
       display: block;
       width: 100%;
       max-width: calc(50% - 34px);
       padding: 38px;
       background-color: $white;
       border-radius: 8px;
+      &:before {
+        content: attr(data-badge);
+        position: absolute;
+        top: 32px;
+        left: 32px;
+        display: block;
+        width: 100%;
+        max-width: max-content;
+        padding: 6px 20px;
+        font-family: $ff;
+        font-weight: 600;
+        font-size: 15px;
+        text-align: center;
+        color: $white;
+        background-color: var(--accent-color);
+        border-radius: 5px;
+      }
       .block__product-img {
         display: block;
         width: 100%;
@@ -462,6 +480,10 @@
   }
   .block-21 .block__products .block__product {
     padding: 24px;
+  }
+  .block-21 .block__products .block__product:before {
+    top: 20px;
+    left: 20px;
   }
 
   .product__popup .close-popup {
