@@ -46,6 +46,8 @@ jQuery(document).ready(function ($) {
 
   // block-21
   if (document.querySelector('.block-21')) {
+    const popupThankYou = document.querySelector('.web-popup.web-popup__thank-you');
+
     getCountBasket();
 
     function getCountBasket() {
@@ -233,6 +235,14 @@ jQuery(document).ready(function ($) {
 
       // 3. Закрываем попап корзины (опционально)
       $(".basket__popup").hide();
+
+      // 4. Открываем popup thank-you
+      setTimeout(() => {
+        if (popupThankYou) {
+          popupThankYou.classList.add('active');
+        }
+      }, 400);
+
     }, false);
   }
 

@@ -111,4 +111,16 @@ $link = esc_url(get_field('link'));
     </div>
   </div>
 </div>
+
+<div class="web-popup web-popup__thank-you">
+  <div class="popup-bg"></div>
+  <div class="close-web-popup"></div>
+  <div class="popup-content">
+    <img src="<?= $url; ?>/webdmitriev/assets/img/block-21/thank-you.png" alt="Rus Lasa" class="popup-content__image" />
+    <div class="popup-content__text">
+      <h3 class="popup-title">Спасибо за заказ!</h3>
+      <p class="popup-descr">мы свяжемся для уточнения деталей заказа</p>
+    </div>
+  </div>
+</div>
 <?php endif; ?>

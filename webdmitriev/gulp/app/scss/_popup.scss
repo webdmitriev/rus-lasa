@@ -150,11 +150,64 @@
     cursor: pointer;
     z-index: 20;
   }
+  &.web-popup__thank-you {
+    .popup-bg {
+      background-color: #73ccf2;
+    }
+    .popup-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 980px;
+      .popup-content__image {
+        display: block;
+        width: 240px;
+        height: 240px;
+        object-fit: contain;
+        border-radius: 1000px;
+      }
+      .popup-content__text {
+        display: block;
+        width: 100%;
+        max-width: calc(100% - 284px);
+        .popup-title {
+          display: block;
+          width: 100%;
+          margin-bottom: 24px;
+          font-family: $ff;
+          font-weight: 400;
+          font-size: 40px;
+          color: $black;
+        }
+        .popup-descr {
+          display: block;
+          width: 100%;
+          font-family: $ff;
+          font-weight: 400;
+          font-size: 24px;
+          color: $white;
+        }
+      }
+    }
+  }
+  &.web-popup-vacancy {
+    .wpcf7 form .wpcf7-response-output,
+    .wpcf7 form .wpcf7-response-output,
+    .wpcf7 form .wpcf7-response-output {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
   &.active {
     display: block;
     z-index: 700;
     .popup-content {
       animation: popup-content-show 1s ease forwards;
+    }
+    &.web-popup__thank-you {
+      z-index: 900;
     }
   }
 }
@@ -266,6 +319,15 @@
     right: 10px;
   }
 }
+@media (max-width: 768px) {
+  .web-popup.web-popup__thank-you .popup-content .popup-content__image {
+    margin: 0 auto 40px auto;
+  }
+  .web-popup.web-popup__thank-you .popup-content .popup-content__text {
+    max-width: 100%;
+    text-align: center;
+  }
+}
 @media (max-width: 576px) {
   .web-popup-vacancy.web-popup .sect_title {
     margin-bottom: 24px;
@@ -315,6 +377,19 @@
   }
   .cookie-popup .cookie-popup__accept {
     padding: 7px 10px;
+  }
+
+  .web-popup.web-popup__thank-you .popup-content .popup-content__image {
+    width: 210px;
+    height: 210px;
+    margin-bottom: 30px;
+  }
+  .web-popup.web-popup__thank-you .popup-content .popup-content__text .popup-title {
+    margin-bottom: 16px;
+    font-size: 32px;
+  }
+  .web-popup.web-popup__thank-you .popup-content .popup-content__text .popup-descr {
+    font-size: 20px;
   }
 }
 @media (max-width: 400px) {
