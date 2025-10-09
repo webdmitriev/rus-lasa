@@ -236,5 +236,10 @@ jQuery(document).ready(function ($) {
     }, false);
   }
 
+  // block-19
+  if (document.querySelector('.block-19')) {
+    showPopups(".btn-web-popup-vacancy", $(".web-popup-vacancy"))
+  }
+
 
 });

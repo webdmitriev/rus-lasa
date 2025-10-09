@@ -72,3 +72,16 @@ $numAttr  = rand(1, 100000);
 @media (max-width: 576px) { .<?= $block_path; ?>[data-bg="<?= $numAttr; ?>"] .block-bg { <?= $bg_576; ?> } }
 </style>
 <?php endif; ?>
+
+
+<?php if( !is_admin() ): ?>
+<!-- btn-web-popup-vacancy / web-popup-vacancy -->
+<div class="web-popup web-popup-vacancy">
+  <div class="popup-bg"></div>
+  <div class="close-web-popup"></div>
+  <div class="popup-content scroll-line-none">
+    <h2 class="sect_title">Заявка на публикацию вашей вакансии</h2>
+    <?= do_shortcode('[contact-form-7 id="176ed03" title="Заявка на публикуацию вакансии"]'); ?>
+  </div>
+</div>
+<?php endif; ?>
