@@ -5,28 +5,47 @@
  */
 add_filter('block_categories_all', function($categories, $post) {
   $categories[] = array(
-    'slug'  => 'block_main',
-    'title' => __('Заглавные блоки', 'webdmitriev'),
+    'slug'  => 'page_main',
+    'title' => __('Главная страница', 'webdmitriev'),
+    'icon'  => 'wordpress',
+  );
+  $categories[] = array(
+    'slug'  => 'page_documents',
+    'title' => __('Документы', 'webdmitriev'),
+    'icon'  => 'wordpress',
+  );
+  $categories[] = array(
+    'slug'  => 'page_news',
+    'title' => __('Новости', 'webdmitriev'),
+    'icon'  => 'wordpress',
+  );
+  $categories[] = array(
+    'slug'  => 'page_education',
+    'title' => __('Образование', 'webdmitriev'),
+    'icon'  => 'wordpress',
+  );
+  $categories[] = array(
+    'slug'  => 'page_vacancy',
+    'title' => __('Вакансии', 'webdmitriev'),
+    'icon'  => 'wordpress',
+  );
+  $categories[] = array(
+    'slug'  => 'page_store',
+    'title' => __('Книги и мерч', 'webdmitriev'),
+    'icon'  => 'wordpress',
+  );
+  $categories[] = array(
+    'slug'  => 'page_association',
+    'title' => __('Стать членом ассоциации', 'webdmitriev'),
+    'icon'  => 'wordpress',
+  );
+  $categories[] = array(
+    'slug'  => 'page_events',
+    'title' => __('Мероприятия', 'webdmitriev'),
     'icon'  => 'wordpress',
   );
 
-  $categories[] = array(
-    'slug'  => 'block_title',
-    'title' => __('Заголовки', 'webdmitriev'),
-    'icon'  => 'wordpress',
-  );
 
-  $categories[] = array(
-    'slug'  => 'block_content',
-    'title' => __('Контент', 'webdmitriev'),
-    'icon'  => 'wordpress',
-  );
-
-  $categories[] = array(
-    'slug'  => 'block_news',
-    'title' => __('Новостные блоки', 'webdmitriev'),
-    'icon'  => 'wordpress',
-  );
 
   return $categories;
 }, 10, 2);
@@ -40,9 +59,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-01',
     'title'           => __('Block - 01'),
-    'description'     => __('Главная баннер'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-01.php',
-    'category'        => 'block_main',
+    'category'        => 'page_main',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -60,9 +79,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-02',
     'title'           => __('Block - 02'),
-    'description'     => __('Текст'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-02.php',
-    'category'        => 'block_content',
+    'category'        => 'page_main',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -80,9 +99,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-03',
     'title'           => __('Block - 03'),
-    'description'     => __('Текст'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-03.php',
-    'category'        => 'block_content',
+    'category'        => 'page_main',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -100,9 +119,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-04',
     'title'           => __('Block - 04'),
-    'description'     => __('Заголовок'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-04.php',
-    'category'        => 'block_title',
+    'category'        => 'page_main',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -120,9 +139,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-05',
     'title'           => __('Block - 05'),
-    'description'     => __('Картинка с авторами'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-05.php',
-    'category'        => 'block_content',
+    'category'        => 'page_main',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -140,9 +159,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-06',
     'title'           => __('Block - 06'),
-    'description'     => __('Фон картинка с логотипами и текстом'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-06.php',
-    'category'        => 'block_content',
+    'category'        => 'page_main',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -160,9 +179,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-07',
     'title'           => __('Block - 07'),
-    'description'     => __('Заглавный блок'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-07.php',
-    'category'        => 'block_main',
+    'category'        => 'page_documents',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -180,9 +199,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-08',
     'title'           => __('Block - 08'),
-    'description'     => __('Контент со слайдером'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-08.php',
-    'category'        => 'block_content',
+    'category'        => 'page_documents',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -200,9 +219,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-09',
     'title'           => __('Block - 09'),
-    'description'     => __('Контент'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-09.php',
-    'category'        => 'block_content',
+    'category'        => 'page_documents',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -220,9 +239,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-10',
     'title'           => __('Block - 10'),
-    'description'     => __('Слайдер с картинкой'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-10.php',
-    'category'        => 'block_content',
+    'category'        => 'page_documents',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -240,9 +259,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-11',
     'title'           => __('Block - 11'),
-    'description'     => __('Блоки с картинками, текстом и кнопкой'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-11.php',
-    'category'        => 'block_content',
+    'category'        => 'page_documents',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -260,9 +279,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-12',
     'title'           => __('Block - 12'),
-    'description'     => __('Политика обработки'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-12.php',
-    'category'        => 'block_content',
+    'category'        => 'page_documents',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -280,9 +299,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-13',
     'title'           => __('Block - 13'),
-    'description'     => __('Текст'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-13.php',
-    'category'        => 'block_content',
+    'category'        => 'page_documents',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -300,9 +319,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-14',
     'title'           => __('Block - 14'),
-    'description'     => __('Новости'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-14.php',
-    'category'        => 'block_news',
+    'category'        => 'page_news',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -320,9 +339,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-15',
     'title'           => __('Block - 15'),
-    'description'     => __('Текст, картинка, кнопка'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-15.php',
-    'category'        => 'block_news',
+    'category'        => 'page_education',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -340,9 +359,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-16',
     'title'           => __('Block - 16'),
-    'description'     => __('Блок'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-16.php',
-    'category'        => 'block_news',
+    'category'        => 'page_education',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -360,9 +379,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-17',
     'title'           => __('Block - 17'),
-    'description'     => __('Новости - кастомные'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-17.php',
-    'category'        => 'block_news',
+    'category'        => 'page_education',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -380,9 +399,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-18',
     'title'           => __('Block - 18'),
-    'description'     => __('Заголовок, текст, кнопка'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-18.php',
-    'category'        => 'block_news',
+    'category'        => 'page_education',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -400,9 +419,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-19',
     'title'           => __('Block - 19'),
-    'description'     => __('Картинка, текст, кнопки'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-19.php',
-    'category'        => 'block_news',
+    'category'        => 'page_vacancy',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -420,9 +439,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-20',
     'title'           => __('Block - 20'),
-    'description'     => __('Вакансии'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-20.php',
-    'category'        => 'block_news',
+    'category'        => 'page_vacancy',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -440,9 +459,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-21',
     'title'           => __('Block - 21'),
-    'description'     => __('Магазин книг'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-21.php',
-    'category'        => 'block_news',
+    'category'        => 'page_store',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -460,9 +479,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-22',
     'title'           => __('Block - 22'),
-    'description'     => __('Описание с фоновой картинкой'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-22.php',
-    'category'        => 'block_news',
+    'category'        => 'page_association',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -480,9 +499,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-23',
     'title'           => __('Block - 23'),
-    'description'     => __('Описание с кнопками'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-23.php',
-    'category'        => 'block_news',
+    'category'        => 'page_association',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -500,9 +519,9 @@ add_action('acf/init', function() {
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-24',
     'title'           => __('Block - 24'),
-    'description'     => __('Описание новости'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-24.php',
-    'category'        => 'block_news',
+    'category'        => 'page_news',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
@@ -516,13 +535,13 @@ add_action('acf/init', function() {
     )
   ));
 
-  // 24
+  // 25
   acf_register_block_type(array(
     'name'            => 'rus-lasa-block-25',
     'title'           => __('Block - 25'),
-    'description'     => __('Мероприятия'),
+    'description'     => __(''),
     'render_template' => 'webdmitriev/blocks/block-25.php',
-    'category'        => 'block_news',
+    'category'        => 'page_events',
     'icon'            => $icon,
     'keywords'        => array('block'),
     'mode'            => 'preview',
