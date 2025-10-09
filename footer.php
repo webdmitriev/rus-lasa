@@ -47,10 +47,11 @@
 				<div class="line-wrap df-sp-ce w-100p">
 					<p class="descr">&copy; <?php echo date('Y'); ?> Rus-LASA</p>
 					<div class="footer__bottom-contacts df-fe-ce w-100p">
-						<a href="mailto:info@ruslasa.ru" class="footer-email">info@ruslasa.ru</a>
-						<a href="#" target="_blank" rel="noopener noreferrer" class="footer-social"><img src="<?= $url; ?>/webdmitriev/assets/img/icons/icon-linked.svg" alt="Rus Lasa" /></a>
-						<a href="#" target="_blank" rel="noopener noreferrer" class="footer-social"><img src="<?= $url; ?>/webdmitriev/assets/img/icons/icon-tg.svg" alt="Rus Lasa" /></a>
-						<a href="#" target="_blank" rel="noopener noreferrer" class="footer-social"><img src="<?= $url; ?>/webdmitriev/assets/img/icons/icon-email.svg" alt="Rus Lasa" /></a>
+						<?php if(get_field('e-mail', 'option')): ?><a href="mailto:<?= get_field('e-mail', 'option'); ?>" class="footer-email"><?= get_field('e-mail', 'option'); ?></a><?php endif; ?>
+
+						<?php if( have_rows('footer_social', 'option') ): while ( have_rows('footer_social', 'option') ): the_row(); ?>
+							<a href="<?= get_sub_field('link'); ?>" target="_blank" rel="noopener noreferrer" class="footer-social"><img src="<?= get_sub_field('icon'); ?>" alt="Rus Lasa" /></a>
+						<?php endwhile; endif; ?>
 					</div>
 				</div>
 			</div>
