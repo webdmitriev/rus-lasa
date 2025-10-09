@@ -196,3 +196,50 @@ function register_affairs_categories_taxonomy() {
     ));
 }
 add_action('init', 'register_affairs_categories_taxonomy');
+
+
+// ====================================
+// ====================================
+// ====================================
+
+
+// === Регистрируем Custom Post Type "Книги и мерч" ===
+function register_books_and_merch_post_type() {
+
+    $labels = array(
+        'name'               => 'Книги и мерч',
+        'singular_name'      => 'Книги и мерч',
+        'menu_name'          => 'Книги и мерч',
+        'name_admin_bar'     => 'Книги и мерч',
+        'add_new'            => 'Добавить',
+        'add_new_item'       => 'Добавить',
+        'new_item'           => 'Новая книга или мерч',
+        'edit_item'          => 'Редактировать',
+        'view_item'          => 'Просмотр',
+        'all_items'          => 'Посмотреть все',
+        'search_items'       => 'Поиск',
+        'parent_item_colon'  => 'Родительская мероприятие:',
+        'not_found'          => 'Книги и мерч не найдены.',
+        'not_found_in_trash' => 'В корзине пусто.',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'show_in_rest'       => true, // Включаем поддержку Gutenberg / API
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'books-and-merch'),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 5,
+        'menu_icon'          => 'dashicons-id', // Иконка меню в админке
+        'supports'           => array('title', 'editor', 'thumbnail'),
+    );
+
+    register_post_type('books-and-merch', $args);
+}
+add_action('init', 'register_books_and_merch_post_type');
