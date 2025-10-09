@@ -121,3 +121,78 @@ function register_vacancy_title_taxonomy() {
     ));
 }
 add_action('init', 'register_vacancy_title_taxonomy');
+
+
+// ====================================
+// ====================================
+// ====================================
+
+
+// === Регистрируем Custom Post Type "Мероприятия" ===
+function register_affairs_post_type() {
+
+    $labels = array(
+        'name'               => 'Мероприятия',
+        'singular_name'      => 'Мероприятия',
+        'menu_name'          => 'Мероприятия',
+        'name_admin_bar'     => 'Мероприятия',
+        'add_new'            => 'Добавить новое',
+        'add_new_item'       => 'Добавить новое мероприятие',
+        'new_item'           => 'Новое мероприятие',
+        'edit_item'          => 'Редактировать мероприятие',
+        'view_item'          => 'Просмотр мероприятия',
+        'all_items'          => 'Все мероприятия',
+        'search_items'       => 'Поиск мероприятий',
+        'parent_item_colon'  => 'Родительская мероприятие:',
+        'not_found'          => 'Мероприятия не найдены.',
+        'not_found_in_trash' => 'В корзине мероприятий нет.',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'show_in_rest'       => true, // Включаем поддержку Gutenberg / API
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array('slug' => 'affairs'),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 5,
+        'menu_icon'          => 'dashicons-id', // Иконка меню в админке
+        'supports'           => array('title', 'editor', 'thumbnail'),
+    );
+
+    register_post_type('affairs', $args);
+}
+add_action('init', 'register_affairs_post_type');
+
+
+// === Регистрируем таксономии ===
+// Категория
+function register_affairs_categories_taxonomy() {
+    $labels = array(
+        'name'              => 'Категория',
+        'singular_name'     => 'Категория',
+        'search_items'      => 'Найти категорию',
+        'all_items'         => 'Все категории',
+        'edit_item'         => 'Редактировать категорию',
+        'update_item'       => 'Обновить категорию',
+        'add_new_item'      => 'Добавить новую категорию',
+        'new_item_name'     => 'Название новой категории',
+        'menu_name'         => 'Категория',
+    );
+
+    register_taxonomy('affairs_categories', array('affairs'), array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'affairs-categories'),
+        'show_in_rest'      => true,
+    ));
+}
+add_action('init', 'register_affairs_categories_taxonomy');
