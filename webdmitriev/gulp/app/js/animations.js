@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
   const isAnimation = document.querySelector('.add-animation');
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => entry.isIntersecting ? entry.target.classList.add('isAnime') : entry.target.classList.remove('isAnime'))
+    entries.forEach((entry) => entry.isIntersecting ? entry.target.classList.add('isAnime') : entry.target.classList.remove('www'))
   }, { rootMargin: "-5px 0px -100px 0px" })
 
   // block-02
