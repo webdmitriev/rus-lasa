@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
       prevArrow: $(".block-08 .block-slider__arrows .block-slider__arrow-prev"),
       nextArrow: $(".block-08 .block-slider__arrows .block-slider__arrow-next"),
       rows: 0,
-      adaptiveHeight: true, // ← ключевая настройка
+      //adaptiveHeight: true, // ← ключевая настройка
     });
   });
 
