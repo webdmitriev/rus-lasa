@@ -14,6 +14,14 @@ jQuery(document).ready(function ($) {
   // controls
   if ($(".block-14")) { newsBlock() }
   function newsBlock() {
+    $('.data-select').on({
+      mouseenter: function () { },
+      mouseleave: function () {
+        $(this).removeClass('active');
+      }
+    });
+
+
     $(".data-select").on("click", ".data-header", function () {
       $(this).parents(".data-select").toggleClass("active")
     })
