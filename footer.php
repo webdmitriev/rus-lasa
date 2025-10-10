@@ -44,14 +44,16 @@
 			</div>
 
 			<div class="footer__bottom d-block w-100p">
-				<div class="line-wrap df-sp-ce w-100p">
-					<p class="descr">&copy; <?php echo date('Y'); ?> Rus-LASA</p>
-					<div class="footer__bottom-contacts df-fe-ce w-100p">
-						<?php if(get_field('e-mail', 'option')): ?><a href="mailto:<?= get_field('e-mail', 'option'); ?>" class="footer-email"><?= get_field('e-mail', 'option'); ?></a><?php endif; ?>
-
-						<?php if( have_rows('footer_social', 'option') ): while ( have_rows('footer_social', 'option') ): the_row(); ?>
-							<a href="<?= get_sub_field('link'); ?>" target="_blank" rel="noopener noreferrer" class="footer-social"><img src="<?= get_sub_field('icon'); ?>" alt="Rus Lasa" /></a>
-						<?php endwhile; endif; ?>
+				<div class="container">
+					<div class="line-wrap df-sp-ce w-100p">
+						<p class="descr">&copy; <?php echo date('Y'); ?> Rus-LASA</p>
+						<div class="footer__bottom-contacts df-fe-ce w-100p">
+							<?php if(get_field('e-mail', 'option')): ?><a href="mailto:<?= get_field('e-mail', 'option'); ?>" class="footer-email"><?= get_field('e-mail', 'option'); ?></a><?php endif; ?>
+	
+							<?php if( have_rows('footer_social', 'option') ): while ( have_rows('footer_social', 'option') ): the_row(); ?>
+								<a href="<?= get_sub_field('link'); ?>" target="_blank" rel="noopener noreferrer" class="footer-social"><img src="<?= get_sub_field('icon'); ?>" alt="Rus Lasa" /></a>
+							<?php endwhile; endif; ?>
+						</div>
 					</div>
 				</div>
 			</div>
