@@ -83,10 +83,7 @@
         transition: all 0.3s ease;
       }
       &:after {
-        content: attr(data-text);
-        display: block;
-        width: 100%;
-        max-width: calc(100% - 30px);
+        display: none;
       }
       &:not(:last-child) {
         margin-bottom: 16px;
