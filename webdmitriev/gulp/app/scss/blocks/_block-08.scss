@@ -6,8 +6,8 @@
   align-items: center;
   align-content: center;
   width: 100%;
-  padding-block: 100px;
-  min-height: 1114px;
+  padding-block: 80px;
+  min-height: 800px;
   background-color: var(--bg-gray-color);
   z-index: 10;
   .block-bg {
@@ -77,8 +77,14 @@
     margin-right: 0;
     font-size: 18px;
   }
+  .block-08 .block-slider__arrows {
+    bottom: 20px;
+  }
 }
 @media (max-width: 576px) {
+  .block-08 {
+    min-height: 580px;
+  }
   .block-08 .block-slider .block-slide {
     font-weight: 400;
     font-size: 16px;
