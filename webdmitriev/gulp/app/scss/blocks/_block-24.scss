@@ -64,8 +64,8 @@
       }
     }
     .single__slider {
-      margin-bottom: 34px;
-      padding-inline: 130px;
+      max-width: 580px;
+      margin: 0 auto 34px auto;
       .slick-list,
       .slick-track {
         padding-inline: 0 !important;
@@ -102,7 +102,7 @@
 }
 @media (max-width: 1199px) {
   .block-24 .line-wrap .single__slider {
-    padding-inline: 90px;
+    max-width: 520px;
   }
 }
 @media (max-width: 991px) {
