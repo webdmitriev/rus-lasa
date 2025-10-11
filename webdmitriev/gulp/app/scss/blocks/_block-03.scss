@@ -2,7 +2,7 @@
   position: relative;
   display: block;
   width: 100%;
-  padding-block: 100px;
+  padding-block: 70px;
   background-color: var(--bg-gray-color);
   z-index: 10;
   .block-bg {
@@ -19,7 +19,7 @@
     z-index: 5;
   }
   .sect_title {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     text-align: center;
     color: $white;
   }
@@ -30,9 +30,13 @@
     ul {
       margin-bottom: 40px;
       li {
+        font-size: 18px;
         color: $white;
         &:before {
           background-color: $white;
+        }
+        &:not(:last-child) {
+          margin-bottom: 18px;
         }
       }
     }

@@ -33,6 +33,7 @@ body {
   line-height: $lh;
   color: $black;
   background-color: $white;
+  zoom: 80%;
 }
 
 #app {
@@ -53,5 +54,11 @@ body {
   }
   @media (max-width: #{$md}px) {
     max-width: 600px;
+  }
+}
+
+@media (max-width: 1199px) {
+  body {
+    zoom: 100%;
   }
 }

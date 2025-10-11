@@ -2,13 +2,13 @@
   position: relative;
   display: block;
   width: 100%;
-  padding-block: 100px;
+  padding-block: 40px 100px;
   background-color: var(--bg-gray-color);
   z-index: 10;
   .img {
     display: block;
     height: inherit;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 40px auto;
   }
   .items__ul {
     max-width: 980px;
@@ -50,7 +50,7 @@
 }
 @media (max-width: 991px) {
   .block-05 {
-    padding-block: 60px;
+    padding-block: 40px 60px;
   }
   .block-05 .img {
     margin-bottom: 40px;
