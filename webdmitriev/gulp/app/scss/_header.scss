@@ -1,12 +1,14 @@
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 50%;
   display: block;
   width: 100%;
+  max-width: 1920px;
   padding: 0px 24px;
   background-color: var(--accent-color);
   transform: translateX(-50%);
+  transition: all 0.4s ease;
   z-index: 90;
   .header-logotype {
     display: block;

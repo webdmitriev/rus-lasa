@@ -8,6 +8,7 @@ jQuery(document).ready(function ($) {
   })
 
   $(".header-mobile").on("click", ".close-menu", function () {
+    $(".header .burger-menu").removeClass("active")
     $(".header-mobile").removeClass("active")
   })
 
