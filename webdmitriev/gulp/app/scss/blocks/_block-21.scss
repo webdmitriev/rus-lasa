@@ -49,22 +49,22 @@
     justify-content: flex-start;
     align-items: stretch;
     width: 100%;
-    gap: 64px;
+    gap: 32px 24px;
     max-width: 1078px;
     margin: 0 auto;
     .block__product {
       position: relative;
       display: block;
       width: 100%;
-      max-width: calc(50% - 34px);
-      padding: 38px;
+      max-width: calc(33% - 14px);
+      padding: 18px 18px 92px 18px;
       background-color: $white;
       border-radius: 8px;
       &:before {
         content: attr(data-badge);
         position: absolute;
-        top: 32px;
-        left: 32px;
+        top: 16px;
+        left: 16px;
         display: block;
         width: 100%;
         max-width: max-content;
@@ -80,8 +80,8 @@
       .block__product-img {
         display: block;
         width: 100%;
-        height: 540px;
-        margin-bottom: 30px;
+        height: 382px;
+        margin-bottom: 16px;
         object-fit: cover;
         border-radius: 8px;
       }
@@ -98,10 +98,13 @@
         margin-bottom: 8px;
       }
       .block__product-price {
-        margin-bottom: 30px;
         font-weight: 600;
       }
       .btn {
+        position: absolute;
+        bottom: 18px;
+        left: 18px;
+        z-index: 8;
       }
     }
   }
@@ -260,7 +263,7 @@
     }
     .basket__items {
       counter-reset: productCounter;
-      margin-bottom: 40px;
+      margin-bottom: 24px;
       .basket__item {
         position: relative;
         display: flex;
@@ -285,8 +288,8 @@
         }
         .basket__item-img {
           display: block;
-          width: 130px;
-          height: 166px;
+          width: 112px;
+          height: 148px;
           object-fit: cover;
           border-radius: 8px;
         }
@@ -304,7 +307,7 @@
             margin-bottom: 16px;
             font-family: $ff;
             font-weight: 400;
-            font-size: 20px;
+            font-size: 18px;
             color: $black;
           }
           .basket__item-price {
@@ -385,7 +388,7 @@
       }
     }
     .basket__controls {
-      margin-bottom: 60px;
+      margin-bottom: 24px;
       padding-right: 65px;
       .basket-clean {
         display: block;
@@ -421,6 +424,7 @@
     }
     .basket__form {
       .wpcf7-form {
+        gap: 18px;
         .group-input {
           display: flex;
           flex-wrap: wrap;
@@ -443,6 +447,7 @@
             input[type="text"],
             input[type="email"] {
               padding-block: 10px;
+              font-size: 18px;
               color: rgba(0, 0, 0, 0.7);
               border: 1px solid var(--accent-color);
               border-radius: 3px;
@@ -478,13 +483,6 @@
   .block-21 .line-wrap .block-content .descr {
     font-size: 21px;
   }
-  .block-21 .block__products .block__product {
-    padding: 24px;
-  }
-  .block-21 .block__products .block__product:before {
-    top: 20px;
-    left: 20px;
-  }
 
   .product__popup .close-popup {
     top: 10px;
@@ -514,14 +512,27 @@
 }
 @media (max-width: 991px) {
   .block-21 .block__products {
-    gap: 24px;
+    gap: 28px 16px;
     max-width: 754px;
   }
   .block-21 .block__products .block__product {
-    max-width: calc(50% - 14px);
+    padding: 14px 14px 72px 14px;
+  }
+  .block-21 .block__products .block__product:before {
+    top: 12px;
+    left: 12px;
   }
   .block-21 .block__products .block__product .block__product-img {
-    height: 376px;
+    height: 252px;
+  }
+  .block-21 .block__products .block__product .block__product-title {
+    font-size: 15px;
+  }
+  .block-21 .block__products .block__product .btn {
+    bottom: 14px;
+    left: 14px;
+    padding: 8px 14px;
+    font-size: 14px;
   }
 
   .product__popup .product__popup-content {
@@ -555,13 +566,17 @@
     font-size: 19px;
   }
   .block-21 .block__products {
-    max-width: 380px;
+    max-width: 490px;
   }
   .block-21 .block__products .block__product {
-    max-width: 100%;
+    max-width: calc(50% - 12px);
   }
-  .block-21 .block__products .block__product .block__product-img {
-    height: 426px;
+  .block-21 .block__products .block__product:before {
+    padding: 4px 12px;
+    font-size: 13px;
+  }
+  .block-21 .block__products .block__product .btn {
+    font-weight: normal;
   }
 
   .basket__popup .basket__popup-content .basket__items .basket__item {
@@ -639,6 +654,16 @@
   }
 }
 @media (max-width: 460px) {
+  .block-21 .block__products {
+    max-width: 230px;
+  }
+  .block-21 .block__products .block__product {
+    max-width: 100%;
+  }
+  .block-21 .block__products .block__product .block__product-title {
+    font-size: 14px;
+  }
+
   .basket__popup .basket__popup-content .basket__items .basket__item .basket__item-img {
     display: none;
   }

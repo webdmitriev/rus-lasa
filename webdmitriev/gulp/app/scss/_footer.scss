@@ -2,11 +2,11 @@
   position: relative;
   display: block;
   width: 100%;
-  padding-top: 100px;
+  padding-top: 60px;
   background-color: var(--accent-color);
   .footer-menu {
     gap: 46px;
-    margin-bottom: 115px;
+    margin-bottom: 75px;
     .menu-item {
       display: block;
       width: 100%;
@@ -43,6 +43,9 @@
       max-width: 480px;
       margin: 0 auto;
       transform: translateX(140px);
+      .wpcf7-form {
+        gap: 24px;
+      }
       .group-input .wpcf7-not-valid-tip {
         color: var(--menu-color);
       }
@@ -110,13 +113,14 @@
 }
 @media (max-width: 1199px) {
   .footer {
-    padding-top: 60px;
+    padding-top: 52px;
   }
   .footer .footer-menu {
     gap: 32px;
+    margin-bottom: 50px;
   }
   .footer .footer-menu .menu-item a {
-    font-size: 24px;
+    font-size: 22px;
   }
   .footer .line-wrap .form-image {
     left: calc(50% - 280px);
@@ -125,6 +129,10 @@
     max-width: 440px;
     margin: 0 0 0 auto;
     transform: translateX(0);
+  }
+  .footer .wpcf7 .group-input input[type="email"],
+  .footer .wpcf7 .group-input input[type="text"] {
+    font-size: 18px;
   }
 }
 @media (max-width: 991px) {
@@ -167,7 +175,11 @@
 }
 @media (max-width: 576px) {
   .footer .footer-menu .menu-item a {
-    font-size: 18px;
+    font-size: 17px;
+  }
+  .footer .wpcf7 .group-input input[type="email"],
+  .footer .wpcf7 .group-input input[type="text"] {
+    font-size: 15px;
   }
 }
 @media (max-width: 460px) {

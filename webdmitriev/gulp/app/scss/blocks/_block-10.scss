@@ -9,8 +9,8 @@
     margin-bottom: 30px;
     .block-slide {
       display: block;
-      width: 590px;
-      height: 832px;
+      width: 480px;
+      height: 674px;
       transition: all 0.4s ease;
       opacity: 0;
       img {
@@ -54,8 +54,8 @@
     padding-top: 10px;
   }
   .block-10 .block-slider .block-slide {
-    width: 480px;
-    height: 676px;
+    width: 360px;
+    height: 510px;
   }
 }
 @media (max-width: 991px) {
@@ -64,8 +64,8 @@
 }
 @media (max-width: 576px) {
   .block-10 .block-slider .block-slide {
-    width: 380px;
-    height: 536px;
+    width: 320px;
+    height: 456px;
   }
 }
 @media (max-width: 460px) {
