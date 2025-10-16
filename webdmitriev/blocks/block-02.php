@@ -20,7 +20,8 @@ $allowed_tags = array(
   )
 );
 
-$text     = wp_kses(get_field('text'), $allowed_tags);
+$qr_code      = esc_url(get_field('qr_code'));
+$text         = wp_kses(get_field('text'), $allowed_tags);
 $btn_text     = wp_kses(get_field('btn_text'), $allowed_tags);
 $btn_is_link  = get_field('btn_is_link');
 $btn_link     = esc_url(get_field('btn_link'));
@@ -38,6 +39,7 @@ $btn_popup    = get_field('btn_popup');
 
   <?php if( !is_admin() ) : ?>
     <div class="container">
+      <?php if($qr_code): ?><div class="qr" style="margin-bottom: 40px;"><img src="<?= $qr_code; ?>" alt="QR Code" width="240" height="240" /></div><?php endif; ?>
       <?php if($text): ?><p class="descr"><?= $text; ?></p><?php endif; ?>
       <?php if($btn_text): ?>
         <?php if($btn_is_link): ?>
