@@ -20,6 +20,7 @@ $allowed_tags = array(
   )
 );
 
+$id_scroll  = get_field('id_scroll') ? get_field('id_scroll') : '';
 $title      = wp_kses(get_field('title'), $allowed_tags);
 $sub_title  = wp_kses(get_field('sub_title'), $allowed_tags);
 $bgc        = get_field('bgc') ? get_field('bgc') : '--bg-gray-color';
@@ -27,7 +28,7 @@ $bgc        = get_field('bgc') ? get_field('bgc') : '--bg-gray-color';
 ?>
 
 <!-- <?= $block_path; ?> (start) -->
-<section class="<?= $block_path; ?>" style="background-color: var(<?= $bgc; ?>)">
+<section class="<?= $block_path; ?>" id="<?= $id_scroll; ?>" style="background-color: var(<?= $bgc; ?>)">
   <?php if( is_admin() ) : ?>
     <div class="gutenberg-block" style="display: block;max-width: 100%;padding: 10px;object-fit: contain;background-color: #ffffff;border: 1px solid #D1D1D1;">
       <img style="max-width: 100%;" src="<?= $url . '/webdmitriev/images/' . $block_path . '.jpg'; ?>" alt="Rus Lasa" />

@@ -12,6 +12,15 @@ jQuery(document).ready(function ($) {
     $(".header-mobile").removeClass("active")
   })
 
+  // ************
+  // Лёгкий ход для якорей
+  $("body").on('click', ".ancLinks a, a.ancLinks", function () {
+    let elementClick = $(this).attr("href");
+    let destination = Math.round($(elementClick).offset().top);
+    $("html,body").animate({ scrollTop: destination - 100 }, 1100);
+    return false;
+  });
+
   // controls
   if ($(".block-14")) { newsBlock() }
   function newsBlock() {
