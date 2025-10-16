@@ -154,6 +154,12 @@
   .footer .line-wrap .wpcf7 {
     margin: 0 auto;
   }
+  .footer .footer__bottom .descr {
+    max-width: 32%;
+  }
+  .footer .footer__bottom .footer__bottom-contacts {
+    max-width: 64%;
+  }
 }
 @media (max-width: 768px) {
   .footer .footer__bottom .descr,
@@ -185,4 +191,7 @@
 @media (max-width: 460px) {
 }
 @media (max-width: 400px) {
+  .footer .footer__bottom .line-wrap {
+    padding-inline: 0;
+  }
 }
