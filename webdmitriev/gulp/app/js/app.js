@@ -91,12 +91,12 @@ jQuery(document).ready(function ($) {
       const title = $p.find(".block__product-title").text();
       const image = $p.find(".block__product-img").attr("src");
       const price = $p.attr("data-price");
-      const descr = $p.find(".block__product-descr").text();
+      const descr = $p.find(".block__product-descr").html();
 
       $(".product__popup .product__img").attr("src", image);
       $(".product__popup .product__title").text(title);
       $(".product__popup .product__price").text(price);
-      $(".product__popup .content__descr").text(descr);
+      $(".product__popup .content__descr").html(descr);
       $(".product__popup .btn").attr("product-id", id).attr("disabled", false);
 
       $(".product__popup").show();
