@@ -27,7 +27,7 @@ require get_template_directory() . '/webdmitriev/theme-color.php';
 /**
  * Custom page admin
  */
-require get_template_directory() . '/webdmitriev/pages/ui.php';
+// require get_template_directory() . '/webdmitriev/pages/ui.php';
 
 
 /**

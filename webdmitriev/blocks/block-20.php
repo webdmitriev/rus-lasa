@@ -56,9 +56,18 @@ $link = esc_url(get_field('link'));
           <select id="vacancy-salary" name="salary">
             <option value="">Любая зарплата</option>
             <?php
-              $salaries = get_terms(array('taxonomy' => 'vacancy_salary', 'hide_empty' => false));
-              foreach ($salaries as $salary) {
-                  echo '<option value="' . esc_attr($salary->slug) . '">' . esc_html($salary->name) . '</option>';
+              $prices = [
+                '0-30000' => '0 - 30 000 ₽',
+                '30001-50000' => '30 001 - 50 000 ₽',
+                '50001-70000' => '50 001 - 70 000 ₽',
+                '70001-100000' => '70 001 - 100 000 ₽',
+                '100001-140000' => '100 001 - 140 000 ₽',
+                '140001-200000' => '140 001 - 200 000 ₽',
+                '200001-more' => '200 001 и более ₽'
+              ];
+
+              foreach ($prices as $value => $label) {
+                echo '<option value="' . esc_attr($value) . '">' . esc_html($label) . '</option>';
               }
             ?>
           </select>
