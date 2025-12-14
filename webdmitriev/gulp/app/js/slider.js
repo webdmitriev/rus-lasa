@@ -50,4 +50,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  $('.block-01 .block-01-slider').each(function () {
+    const slider = $(this);
+    slider.slick({
+      autoplay: true,
+      autoplaySpeed: 700000,
+      dots: false,
+      infinite: true,
+      // variableWidth: true,
+      centerMode: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      prevArrow: '<button class="slick-arrow slick-arrow-prev"></button>',
+      nextArrow: '<button class="slick-arrow slick-arrow-next"></button>',
+      rows: 0,
+    });
+  });
+
 })

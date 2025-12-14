@@ -269,5 +269,6 @@ jQuery(document).ready(function ($) {
     showPopups(".btn-web-popup-vacancy", $(".web-popup-vacancy"))
   }
 
+  document.querySelectorAll('[name="current-url"]').forEach(el => el.setAttribute('value', window.location.href))
 
 });

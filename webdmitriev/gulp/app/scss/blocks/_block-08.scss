@@ -48,15 +48,15 @@
     z-index: 20;
     .block-slider__arrow {
       display: block;
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 79px;
       &.block-slider__arrow-prev {
         left: 0;
-        background: url("../img/icons/icon-arrow-prev-black.svg") center / contain no-repeat;
+        background: url("../img/block-01/icon-01.01.svg") center / contain no-repeat;
       }
       &.block-slider__arrow-next {
         right: 0;
-        background: url("../img/icons/icon-arrow-next-black.svg") center / contain no-repeat;
+        background: url("../img/block-01/icon-01.02.svg") center / contain no-repeat;
       }
     }
   }

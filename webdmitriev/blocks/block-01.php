@@ -9,22 +9,6 @@ $gutenberg_title = 'Block - 01';
 $url = get_template_directory_uri();
 $image_base64 = 'data:image/gif;base64,R0lGODlhBwAFAIAAAP///wAAACH5BAEAAAEALAAAAAAHAAUAAAIFjI+puwUAOw==';
 
-$allowed_tags = array(
-  'br'    => array(),
-  'span'  => array(
-    'class' => array(),
-  )
-);
-
-$title      = wp_kses(get_field('title'), $allowed_tags);
-$sub_title  = wp_kses(get_field('sub_title'), $allowed_tags);
-$descr      = wp_kses(get_field('descr'), $allowed_tags);
-$logotype   = esc_url(get_field('icon'));
-$is_icons   = get_field('is_icons');
-$bg_1920    = get_field('bg_1920') ? "background: url(" . esc_url(get_field('bg_1920')) . ") center / cover no-repeat;filter: blur(".get_field('blur_1920')."px);"  : '';
-$bg_991     = get_field('bg_991') ? "background: url(" . esc_url(get_field('bg_991')) . ") center / cover no-repeat;filter: blur(".get_field('blur_991')."px);"  : '';
-$bg_576     = get_field('bg_576') ? "background: url(" . esc_url(get_field('bg_576')) . ") center / cover no-repeat;filter: blur(".get_field('blur_576')."px);"  : '';
-
 $numAttr = rand(1, 100000);
 
 ?>
@@ -38,25 +22,29 @@ $numAttr = rand(1, 100000);
   <?php endif; ?>
 
   <?php if( !is_admin() ) : ?>
-    <div class="block-bg"></div>
-    <div class="container">
-      <div class="line-wrap df-sp-ce w-100p <?= $is_icons ? '' : 'block-icons'; ?>">
-        <?php if($logotype): ?><img src="<?= $logotype; ?>" alt="Rus Lasa" class="block-logotype" /><?php endif; ?>
-        <div class="block-content" style="<?= $logotype ? '' : 'max-width: 100%'; ?>">
-          <?php if($title): ?><h1 class="main_title"><?= $title; ?></h1><?php endif; ?>
-          <?php if($sub_title): ?><p class="sub_title"><?= $sub_title; ?></p><?php endif; ?>
-          <?php if($descr): ?><p class="descr"><?= $descr; ?></p><?php endif; ?>
+    <div class="block-01-slider">
+      <?php if( have_rows('sliders') ): while ( have_rows('sliders') ): the_row(); ?>
+        <div class="block-01-slide">
+          <?php if(get_sub_field('bg_576')): ?>
+            <picture>
+              <?php if(get_sub_field('bg_576')): ?><source srcset="<?= get_sub_field('bg_576'); ?>" type="image/jpeg" media="(max-width: 576px)"><?php endif; ?>
+              <?php if(get_sub_field('bg_991')): ?><source srcset="<?= get_sub_field('bg_991'); ?>" type="image/jpeg" media="(max-width: 991px)"><?php endif; ?>
+              <img class="block-bg" src="<?= get_sub_field('bg_1920'); ?>" alt="Alto" />
+            </picture>
+          <?php endif; ?>
+          <div class="container">
+            <div class="line-wrap df-sp-ce">
+              <?php if(get_sub_field('icon')): ?><img src="<?= get_sub_field('icon'); ?>" alt="Rus Lasa" class="block-logotype" /><?php endif; ?>
+              <div class="block-content" style="<?= get_sub_field('icon') ? '' : 'max-width: 100%'; ?>">
+                <?php if(get_sub_field('title')): ?><h2 class="main_title"><?= get_sub_field('title'); ?></h2><?php endif; ?>
+                <?php if(get_sub_field('sub_title')): ?><p class="sub_title"><?= get_sub_field('sub_title'); ?></p><?php endif; ?>
+                <?php if(get_sub_field('descr')): ?><p class="descr"><?= get_sub_field('descr'); ?></p><?php endif; ?>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      <?php endwhile; endif; ?>
     </div>
   <?php endif; ?>
 </section>
 <!-- <?= $block_path; ?> (end) -->
-
-<?php if( !is_admin() && $bg_1920 ): ?>
-<style>
-.<?= $block_path; ?>[data-bg="<?= $numAttr; ?>"] .block-bg { <?= $bg_1920; ?> }
-@media (max-width: 991px) { .<?= $block_path; ?>[data-bg="<?= $numAttr; ?>"] .block-bg { <?= $bg_991; ?> } }
-@media (max-width: 576px) { .<?= $block_path; ?>[data-bg="<?= $numAttr; ?>"] .block-bg { <?= $bg_576; ?> } }
-</style>
-<?php endif; ?>
